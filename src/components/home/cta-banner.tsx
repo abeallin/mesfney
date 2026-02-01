@@ -32,9 +32,9 @@ export function CTABanner() {
           </Button>
           <Button
             asChild
-            variant="outline"
+            variant="ghost"
             size="lg"
-            className="w-full border-white bg-transparent text-white hover:bg-brand-800 sm:w-auto"
+            className="w-full border border-white text-white hover:bg-brand-800 hover:text-white sm:w-auto"
           >
             <Link href={`/${locale}/volunteer`}>
               <Users className="size-5" />
