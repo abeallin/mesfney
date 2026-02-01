@@ -11,7 +11,7 @@ export function CTABanner() {
   const { t } = useTranslation();
 
   return (
-    <section className="bg-brand-500">
+    <section className="bg-brand-700">
       <div className="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-8">
         <h2 className="text-3xl font-bold tracking-tight text-white">
           {t('home.ctaTitle')}
@@ -23,7 +23,7 @@ export function CTABanner() {
           <Button
             asChild
             size="lg"
-            className="w-full bg-white text-brand-600 hover:bg-brand-50 sm:w-auto"
+            className="w-full bg-white text-brand-800 hover:bg-brand-50 sm:w-auto"
           >
             <Link href={`/${locale}/donate`}>
               <Heart className="size-5" />
@@ -34,7 +34,7 @@ export function CTABanner() {
             asChild
             variant="outline"
             size="lg"
-            className="w-full border-white text-white hover:bg-brand-600 sm:w-auto"
+            className="w-full border-white bg-transparent text-white hover:bg-brand-800 sm:w-auto"
           >
             <Link href={`/${locale}/volunteer`}>
               <Users className="size-5" />

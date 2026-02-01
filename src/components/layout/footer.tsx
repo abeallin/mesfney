@@ -29,14 +29,14 @@ export function Footer() {
           {/* Navigation */}
           <div>
             <h3 className="mb-3 font-semibold text-foreground">{t('footer.quickLinks')}</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {NAV_LINKS.map((link) => {
                 const href = link.href === '/' ? `/${locale}` : `/${locale}${link.href}`;
                 return (
                   <li key={link.href}>
                     <Link
                       href={href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-brand-600"
+                      className="inline-block py-1 text-sm text-muted-foreground transition-colors hover:text-brand-700"
                     >
                       {t(`nav.${NAV_KEY_MAP[link.href]}`)}
                     </Link>
@@ -49,21 +49,21 @@ export function Footer() {
           {/* Contact */}
           <div>
             <h3 className="mb-3 font-semibold text-foreground">{t('footer.contactUs')}</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2">
+            <ul className="space-y-1 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2 py-1">
                 <Mail className="size-4 shrink-0" />
                 <a
                   href={`mailto:${SITE.contact.email}`}
-                  className="transition-colors hover:text-brand-600"
+                  className="transition-colors hover:text-brand-700"
                 >
                   {SITE.contact.email}
                 </a>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2 py-1">
                 <Phone className="size-4 shrink-0" />
                 <a
                   href={`tel:${SITE.contact.phoneInternational}`}
-                  className="transition-colors hover:text-brand-600"
+                  className="transition-colors hover:text-brand-700"
                 >
                   {SITE.contact.phone}
                 </a>

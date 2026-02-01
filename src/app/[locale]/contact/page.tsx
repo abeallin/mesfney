@@ -47,7 +47,7 @@ export default async function ContactPage({
                     <h3 className="font-semibold text-foreground">{t.contact.email}</h3>
                     <a
                       href={`mailto:${SITE.contact.email}`}
-                      className="text-brand-600 hover:underline"
+                      className="text-brand-700 hover:underline"
                     >
                       {SITE.contact.email}
                     </a>
@@ -62,7 +62,7 @@ export default async function ContactPage({
                     <h3 className="font-semibold text-foreground">{t.contact.phone}</h3>
                     <a
                       href={`tel:${SITE.contact.phoneInternational}`}
-                      className="text-brand-600 hover:underline"
+                      className="text-brand-700 hover:underline"
                     >
                       {SITE.contact.phone}
                     </a>

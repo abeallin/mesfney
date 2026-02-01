@@ -33,7 +33,7 @@ export function MobileNav() {
       </SheetTrigger>
       <SheetContent side="right" className="w-72">
         <SheetHeader>
-          <SheetTitle className="text-left text-brand-600 font-bold">
+          <SheetTitle className="text-left text-brand-700 font-bold">
             Mesfney Love Foundation
           </SheetTitle>
         </SheetHeader>
@@ -47,9 +47,9 @@ export function MobileNav() {
                   href={href}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    'rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-brand-50 hover:text-brand-600',
+                    'rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-brand-50 hover:text-brand-700',
                     pathname === href
-                      ? 'bg-brand-50 text-brand-600'
+                      ? 'bg-brand-50 text-brand-700'
                       : 'text-foreground'
                   )}
                 >

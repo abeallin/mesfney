@@ -34,7 +34,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={`/${locale}${link.href}`}
-                className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-brand-50 hover:text-brand-600"
+                className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-brand-100 hover:text-brand-700"
               >
                 {t(`nav.${NAV_KEY_MAP[link.href]}`)}
               </Link>
