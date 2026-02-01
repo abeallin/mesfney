@@ -3,7 +3,9 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PageHeader } from '@/components/shared/page-header';
 import { SectionWrapper } from '@/components/layout/section-wrapper';
+import { ContactForm } from '@/components/forms/contact-form';
 import { SITE } from '@/lib/constants';
+import { getTranslations } from '@/lib/get-translations';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -11,12 +13,19 @@ export const metadata: Metadata = {
     'Get in touch with the Mesfney Love Foundation. Email, phone, or visit us in London.',
 };
 
-export default function ContactPage() {
+export default async function ContactPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = getTranslations(locale);
+
   return (
     <>
       <PageHeader
-        title="Contact Us"
-        subtitle="We'd love to hear from you. Get in touch with us."
+        title={t.contact.pageTitle}
+        subtitle={t.contact.pageSubtitle}
       />
 
       <SectionWrapper>
@@ -24,11 +33,10 @@ export default function ContactPage() {
           {/* Contact Details */}
           <div>
             <h2 className="text-2xl font-bold text-foreground">
-              Get in Touch
+              {t.contact.getInTouch}
             </h2>
             <p className="mt-2 text-muted-foreground">
-              Whether you have a question, want to donate, or are interested in
-              volunteering, we&apos;re here to help.
+              {t.contact.getInTouchDesc}
             </p>
 
             <div className="mt-8 space-y-6">
@@ -36,7 +44,7 @@ export default function ContactPage() {
                 <CardContent className="flex items-start gap-4 pt-6">
                   <Mail className="size-6 shrink-0 text-brand-500" />
                   <div>
-                    <h3 className="font-semibold text-foreground">Email</h3>
+                    <h3 className="font-semibold text-foreground">{t.contact.email}</h3>
                     <a
                       href={`mailto:${SITE.contact.email}`}
                       className="text-brand-600 hover:underline"
@@ -51,7 +59,7 @@ export default function ContactPage() {
                 <CardContent className="flex items-start gap-4 pt-6">
                   <Phone className="size-6 shrink-0 text-brand-500" />
                   <div>
-                    <h3 className="font-semibold text-foreground">Phone</h3>
+                    <h3 className="font-semibold text-foreground">{t.contact.phone}</h3>
                     <a
                       href={`tel:${SITE.contact.phoneInternational}`}
                       className="text-brand-600 hover:underline"
@@ -66,7 +74,7 @@ export default function ContactPage() {
                 <CardContent className="flex items-start gap-4 pt-6">
                   <MapPin className="size-6 shrink-0 text-brand-500" />
                   <div>
-                    <h3 className="font-semibold text-foreground">Address</h3>
+                    <h3 className="font-semibold text-foreground">{t.contact.address}</h3>
                     <p className="text-muted-foreground">
                       {SITE.address.street}
                       <br />
@@ -78,26 +86,14 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Contact Form Placeholder */}
+          {/* Contact Form */}
           <div>
             <Card>
               <CardHeader>
-                <CardTitle>Send Us a Message</CardTitle>
+                <CardTitle>{t.contact.sendMessage}</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="rounded-lg bg-muted p-8 text-center">
-                  <Mail className="mx-auto size-10 text-muted-foreground" />
-                  <p className="mt-4 text-muted-foreground">
-                    Contact form coming soon. In the meantime, please reach out
-                    to us directly via email or phone.
-                  </p>
-                  <a
-                    href={`mailto:${SITE.contact.email}`}
-                    className="mt-4 inline-block font-medium text-brand-600 hover:underline"
-                  >
-                    {SITE.contact.email}
-                  </a>
-                </div>
+                <ContactForm />
               </CardContent>
             </Card>
           </div>
