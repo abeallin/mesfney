@@ -1,4 +1,7 @@
+'use client';
+
 import { Calendar, MapPin } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { MLFEvent } from '@/types';
@@ -8,6 +11,7 @@ interface EventCardProps {
 }
 
 export function EventCard({ event }: EventCardProps) {
+  const { t } = useTranslation();
   const dateFormatted = new Date(event.date).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
@@ -27,7 +31,7 @@ export function EventCard({ event }: EventCardProps) {
                 : ''
             }
           >
-            {event.status === 'upcoming' ? 'Upcoming' : event.status}
+            {event.status === 'upcoming' ? t('events.upcomingBadge') : event.status}
           </Badge>
         </div>
       </CardHeader>

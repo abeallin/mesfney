@@ -1,36 +1,38 @@
+'use client';
+
 import { Star } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export function MembershipInfo() {
+  const { t } = useTranslation();
+
   return (
     <Card>
       <CardHeader>
         <Star className="size-8 text-brand-500" />
-        <CardTitle className="mt-2">Become a Member</CardTitle>
+        <CardTitle className="mt-2">{t('donate.memberTitle')}</CardTitle>
       </CardHeader>
       <CardContent>
         <p className="text-muted-foreground">
-          Join the Mesfney Love Foundation as a member and be part of our
-          community of supporters. Members receive updates on our projects,
-          invitations to events, and the satisfaction of making an ongoing
-          difference.
+          {t('donate.memberDesc')}
         </p>
         <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
           <li className="flex items-start gap-2">
             <Star className="mt-0.5 size-4 shrink-0 text-brand-500" />
-            <span>Regular updates on projects and impact</span>
+            <span>{t('donate.memberBenefit1')}</span>
           </li>
           <li className="flex items-start gap-2">
             <Star className="mt-0.5 size-4 shrink-0 text-brand-500" />
-            <span>Invitations to fundraising events</span>
+            <span>{t('donate.memberBenefit2')}</span>
           </li>
           <li className="flex items-start gap-2">
             <Star className="mt-0.5 size-4 shrink-0 text-brand-500" />
-            <span>Voting rights at the Annual General Meeting</span>
+            <span>{t('donate.memberBenefit3')}</span>
           </li>
           <li className="flex items-start gap-2">
             <Star className="mt-0.5 size-4 shrink-0 text-brand-500" />
-            <span>Be part of a community making a real difference</span>
+            <span>{t('donate.memberBenefit4')}</span>
           </li>
         </ul>
       </CardContent>

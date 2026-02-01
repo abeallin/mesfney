@@ -35,3 +35,14 @@ export const NAV_LINKS = [
   { href: '/volunteer', label: 'Volunteer' },
   { href: '/contact', label: 'Contact' },
 ] as const;
+
+export const NAV_KEY_MAP: Record<string, string> = {
+  '/': 'home',
+  '/about': 'about',
+  '/achievements': 'achievements',
+  '/team': 'team',
+  '/events': 'events',
+  '/donate': 'donate',
+  '/volunteer': 'volunteer',
+  '/contact': 'contact',
+};

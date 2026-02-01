@@ -1,9 +1,16 @@
+'use client';
+
 import Link from 'next/link';
 import { Heart, Mail, Phone, MapPin } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Separator } from '@/components/ui/separator';
-import { SITE, NAV_LINKS } from '@/lib/constants';
+import { SITE, NAV_LINKS, NAV_KEY_MAP } from '@/lib/constants';
+import { useLocale } from '@/hooks/use-locale';
 
 export function Footer() {
+  const locale = useLocale();
+  const { t } = useTranslation();
+
   return (
     <footer className="border-t bg-muted/50">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -15,31 +22,33 @@ export function Footer() {
               <span className="font-bold text-foreground">{SITE.name}</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              A UK registered charity supporting sick children in Eritrea
-              through healthcare, education, and play since 2008.
+              {t('footer.about')}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h3 className="mb-3 font-semibold text-foreground">Quick Links</h3>
+            <h3 className="mb-3 font-semibold text-foreground">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-brand-600"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {NAV_LINKS.map((link) => {
+                const href = link.href === '/' ? `/${locale}` : `/${locale}${link.href}`;
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-brand-600"
+                    >
+                      {t(`nav.${NAV_KEY_MAP[link.href]}`)}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="mb-3 font-semibold text-foreground">Contact Us</h3>
+            <h3 className="mb-3 font-semibold text-foreground">{t('footer.contactUs')}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <Mail className="size-4 shrink-0" />
@@ -71,9 +80,9 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="mb-3 font-semibold text-foreground">Legal</h3>
+            <h3 className="mb-3 font-semibold text-foreground">{t('footer.legal')}</h3>
             <p className="text-sm text-muted-foreground">
-              Registered Charity No. {SITE.registrationNumber}
+              {t('common.charityRegistration')}
             </p>
             <p className="mt-1 text-sm text-muted-foreground">
               {SITE.legalName}
