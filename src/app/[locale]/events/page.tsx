@@ -63,7 +63,7 @@ export default async function EventsPage({
             </h2>
             <div className="space-y-6">
               {upcomingEvents.map((event) => (
-                <EventCard key={event.id} event={event} />
+                <EventCard key={event.id} event={event} locale={locale} />
               ))}
             </div>
           </div>
@@ -84,7 +84,7 @@ export default async function EventsPage({
             </h2>
             <div className="space-y-6">
               {pastEvents.map((event) => (
-                <EventCard key={event.id} event={event} />
+                <EventCard key={event.id} event={event} locale={locale} />
               ))}
             </div>
           </div>

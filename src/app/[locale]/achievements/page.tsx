@@ -32,10 +32,10 @@ export default async function AchievementsPage({
             <h2 className="mb-6 text-2xl font-bold text-foreground">
               {t.achievements.timelineTitle}
             </h2>
-            <ProjectTimeline />
+            <ProjectTimeline locale={locale} />
           </div>
           <div>
-            <FinancialSummary />
+            <FinancialSummary locale={locale} />
           </div>
         </div>
       </SectionWrapper>

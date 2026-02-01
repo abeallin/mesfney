@@ -1,9 +1,7 @@
-'use client';
-
 import { User } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { getTranslations } from '@/lib/get-translations';
 import type { TeamMember } from '@/types';
 
 const roleColors: Record<string, string> = {
@@ -14,20 +12,21 @@ const roleColors: Record<string, string> = {
   volunteer: 'bg-amber-100 text-amber-700',
 };
 
-const roleKeyMap: Record<string, string> = {
-  chair: 'team.roleChair',
-  secretary: 'team.roleSecretary',
-  finances: 'team.roleFinances',
-  fundraiser: 'team.roleFundraiser',
-  volunteer: 'team.roleVolunteer',
-};
-
 interface TeamMemberCardProps {
   member: TeamMember;
+  locale: string;
 }
 
-export function TeamMemberCard({ member }: TeamMemberCardProps) {
-  const { t } = useTranslation();
+export function TeamMemberCard({ member, locale }: TeamMemberCardProps) {
+  const t = getTranslations(locale);
+
+  const roleLabels: Record<string, string> = {
+    chair: t.team.roleChair,
+    secretary: t.team.roleSecretary,
+    finances: t.team.roleFinances,
+    fundraiser: t.team.roleFundraiser,
+    volunteer: t.team.roleVolunteer,
+  };
 
   return (
     <Card className="text-center">
@@ -37,11 +36,11 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
         </div>
         <h3 className="mt-4 font-semibold text-foreground">{member.name}</h3>
         <Badge className={`mt-2 ${roleColors[member.role] || ''}`}>
-          {member.title || t(roleKeyMap[member.role] || 'team.roleVolunteer')}
+          {member.title || roleLabels[member.role] || t.team.roleVolunteer}
         </Badge>
         {member.isFounder && (
           <p className="mt-2 text-xs text-muted-foreground">
-            {t('team.foundingMember')}
+            {t.team.foundingMember}
           </p>
         )}
       </CardContent>

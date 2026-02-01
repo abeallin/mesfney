@@ -1,7 +1,11 @@
 import { projects } from '@/data/projects';
 import { ProjectCard } from './project-card';
 
-export function ProjectTimeline() {
+interface ProjectTimelineProps {
+  locale: string;
+}
+
+export function ProjectTimeline({ locale }: ProjectTimelineProps) {
   return (
     <div className="relative">
       {/* Vertical line */}
@@ -13,7 +17,7 @@ export function ProjectTimeline() {
             {/* Timeline dot */}
             <div className="absolute left-2.5 top-8 hidden size-3 rounded-full bg-brand-500 ring-4 ring-brand-100 md:block" />
 
-            <ProjectCard project={project} />
+            <ProjectCard project={project} locale={locale} />
           </div>
         ))}
       </div>

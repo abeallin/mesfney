@@ -47,7 +47,7 @@ export default async function DonatePage({
       />
 
       <SectionWrapper>
-        <DonationOptions />
+        <DonationOptions locale={locale} />
 
         <Separator className="my-12" />
 
@@ -76,7 +76,7 @@ export default async function DonatePage({
             </CardContent>
           </Card>
 
-          <MembershipInfo />
+          <MembershipInfo locale={locale} />
         </div>
 
         <Separator className="my-12" />

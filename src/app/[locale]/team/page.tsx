@@ -29,7 +29,7 @@ export default async function TeamPage({
       />
 
       <SectionWrapper>
-        <TeamGrid />
+        <TeamGrid locale={locale} />
 
         <div className="mt-16 rounded-lg bg-brand-50 p-8 text-center">
           <Users className="mx-auto size-10 text-brand-500" />

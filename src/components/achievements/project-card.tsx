@@ -1,16 +1,15 @@
-'use client';
-
-import { useTranslation } from 'react-i18next';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { getTranslations } from '@/lib/get-translations';
 import type { Project } from '@/types';
 
 interface ProjectCardProps {
   project: Project;
+  locale: string;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
-  const { t } = useTranslation();
+export function ProjectCard({ project, locale }: ProjectCardProps) {
+  const t = getTranslations(locale);
   const yearLabel =
     project.yearEnd
       ? `${project.yearStart} - ${project.yearEnd}`
@@ -26,7 +25,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 {yearLabel}
               </Badge>
               {project.partner && (
-                <Badge variant="outline">{t('achievements.withPartner')} {project.partner}</Badge>
+                <Badge variant="outline">{t.achievements.withPartner} {project.partner}</Badge>
               )}
             </div>
             <h3 className="mt-3 text-lg font-semibold text-foreground">
@@ -36,8 +35,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
               {project.description || project.achievement}
             </p>
             {project.amountSpent && (
-              <p className="mt-2 text-sm font-medium text-brand-600">
-                £{project.amountSpent.toLocaleString('en-GB')} {t('achievements.spent')}
+              <p className="mt-2 text-sm font-medium text-brand-700">
+                £{project.amountSpent.toLocaleString('en-GB')} {t.achievements.spent}
               </p>
             )}
           </div>
