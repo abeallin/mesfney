@@ -29,13 +29,6 @@ export default async function LocaleLayout({
           url: SITE.url,
           foundingDate: SITE.foundedDate,
           founder: { '@type': 'Person', name: SITE.founder },
-          address: {
-            '@type': 'PostalAddress',
-            streetAddress: SITE.address.street,
-            addressLocality: SITE.address.city,
-            postalCode: SITE.address.postcode,
-            addressCountry: SITE.address.country,
-          },
           contactPoint: {
             '@type': 'ContactPoint',
             telephone: SITE.contact.phoneInternational,

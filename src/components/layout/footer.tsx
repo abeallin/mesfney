@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Heart, Mail, Phone, MapPin } from 'lucide-react';
+import { Heart, Mail, Phone } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Separator } from '@/components/ui/separator';
 import { SITE, NAV_LINKS, NAV_KEY_MAP } from '@/lib/constants';
@@ -51,7 +51,7 @@ export function Footer() {
             <h3 className="mb-3 font-semibold text-foreground">{t('footer.contactUs')}</h3>
             <ul className="space-y-1 text-sm text-muted-foreground">
               <li className="flex items-center gap-2 py-1">
-                <Mail className="size-4 shrink-0" />
+                <Mail className="size-4 shrink-0 text-trust-600" />
                 <a
                   href={`mailto:${SITE.contact.email}`}
                   className="transition-colors hover:text-brand-700"
@@ -60,20 +60,13 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-2 py-1">
-                <Phone className="size-4 shrink-0" />
+                <Phone className="size-4 shrink-0 text-trust-600" />
                 <a
                   href={`tel:${SITE.contact.phoneInternational}`}
                   className="transition-colors hover:text-brand-700"
                 >
                   {SITE.contact.phone}
                 </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 size-4 shrink-0" />
-                <span>
-                  {SITE.address.street}, {SITE.address.city},{' '}
-                  {SITE.address.postcode}
-                </span>
               </li>
             </ul>
           </div>

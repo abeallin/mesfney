@@ -1,13 +1,34 @@
+export interface ProjectVideo {
+  id: string;
+  url: string;
+  title: string;
+  titleTi?: string;
+  transcriptTi?: string;
+  transcriptEn?: string;
+}
+
+export interface ProjectAttachment {
+  url: string;
+  title: string;
+  titleTi?: string;
+  type: 'image' | 'pdf';
+}
+
 export interface Project {
   id: string;
   yearStart: number;
   yearEnd?: number;
   title: string;
+  titleTi?: string;
   partner?: string;
   achievement: string;
+  achievementTi?: string;
   description?: string;
+  descriptionTi?: string;
   images?: string[];
   amountSpent?: number;
+  thankYouLetter?: ProjectAttachment;
+  videos?: ProjectVideo[];
 }
 
 export interface TeamMember {
@@ -26,11 +47,13 @@ export type TeamRole = 'chair' | 'secretary' | 'finances' | 'fundraiser' | 'volu
 export interface FinancialRecord {
   id: string;
   period: string;
+  periodTi?: string;
   yearStart: number;
   yearEnd?: number;
   amountSpent: number;
   amountRaised?: number;
   notes: string;
+  notesTi?: string;
   projectId?: string;
 }
 

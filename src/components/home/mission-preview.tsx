@@ -22,8 +22,8 @@ export function MissionPreview() {
             <p>{t('home.missionBody1')}</p>
             <p>{t('home.missionBody2')}</p>
           </div>
-          <Button asChild variant="link" className="mt-6 text-brand-700">
-            <Link href={`/${locale}/about`}>
+          <Button asChild variant="link" className="mt-6 text-trust-700 hover:text-trust-800">
+            <Link href={`/${locale}/our-story`}>
               {t('home.missionLink')}
               <ArrowRight className="size-4" />
             </Link>

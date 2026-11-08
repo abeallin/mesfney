@@ -34,7 +34,7 @@ export function MobileNav() {
       <SheetContent side="right" className="w-72">
         <SheetHeader>
           <SheetTitle className="text-left text-brand-700 font-bold">
-            Mesfney Love Foundation
+            Mesfiney&apos;s Love Foundation
           </SheetTitle>
         </SheetHeader>
         <div className="flex h-full flex-col">

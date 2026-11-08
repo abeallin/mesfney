@@ -28,6 +28,15 @@ export function TeamMemberCard({ member, locale }: TeamMemberCardProps) {
     volunteer: t.team.roleVolunteer,
   };
 
+  const titleLabels: Record<string, string> = {
+    'Chair & Founder': t.team.roleChairFounder,
+    'Co-Chair': t.team.roleCoChair,
+  };
+
+  const displayTitle = member.title
+    ? titleLabels[member.title] || roleLabels[member.role] || member.title
+    : roleLabels[member.role] || t.team.roleVolunteer;
+
   return (
     <Card className="text-center">
       <CardContent className="pt-6">
@@ -36,7 +45,7 @@ export function TeamMemberCard({ member, locale }: TeamMemberCardProps) {
         </div>
         <h3 className="mt-4 font-semibold text-foreground">{member.name}</h3>
         <Badge className={`mt-2 ${roleColors[member.role] || ''}`}>
-          {member.title || roleLabels[member.role] || t.team.roleVolunteer}
+          {displayTitle}
         </Badge>
         {member.isFounder && (
           <p className="mt-2 text-xs text-muted-foreground">

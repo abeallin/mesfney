@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PageHeader } from '@/components/shared/page-header';
 import { SectionWrapper } from '@/components/layout/section-wrapper';
@@ -10,7 +10,7 @@ import { getTranslations } from '@/lib/get-translations';
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Get in touch with the Mesfney Love Foundation. Email, phone, or visit us in London.',
+    "Get in touch with Mesfiney's Love Foundation via email or phone.",
 };
 
 export default async function ContactPage({
@@ -40,7 +40,7 @@ export default async function ContactPage({
             </p>
 
             <div className="mt-8 space-y-6">
-              <Card>
+              <Card className="border-t-4 border-t-brand-500">
                 <CardContent className="flex items-start gap-4 pt-6">
                   <Mail className="size-6 shrink-0 text-brand-500" />
                   <div>
@@ -55,31 +55,17 @@ export default async function ContactPage({
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="border-t-4 border-t-trust-600">
                 <CardContent className="flex items-start gap-4 pt-6">
-                  <Phone className="size-6 shrink-0 text-brand-500" />
+                  <Phone className="size-6 shrink-0 text-trust-600" />
                   <div>
                     <h3 className="font-semibold text-foreground">{t.contact.phone}</h3>
                     <a
                       href={`tel:${SITE.contact.phoneInternational}`}
-                      className="text-brand-700 hover:underline"
+                      className="text-trust-700 hover:underline"
                     >
                       {SITE.contact.phone}
                     </a>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="flex items-start gap-4 pt-6">
-                  <MapPin className="size-6 shrink-0 text-brand-500" />
-                  <div>
-                    <h3 className="font-semibold text-foreground">{t.contact.address}</h3>
-                    <p className="text-muted-foreground">
-                      {SITE.address.street}
-                      <br />
-                      {SITE.address.city}, {SITE.address.postcode}
-                    </p>
                   </div>
                 </CardContent>
               </Card>

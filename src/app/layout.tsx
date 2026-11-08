@@ -12,25 +12,26 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://mesfneylove.org'),
   title: {
-    default: 'Mesfney Love Foundation | Supporting Sick Children in Eritrea',
-    template: '%s | Mesfney Love Foundation',
+    default: "Mesfiney's Love Foundation | Supporting Children with Special Needs in Eritrea",
+    template: "%s | Mesfiney's Love Foundation",
   },
   description:
-    'UK registered charity #1139089 supporting sick children in Eritrea through healthcare, education, and play since 2008.',
+    "Mesfiney's Love Foundation: A UK registered charity #1139089 supporting children with special needs in Eritrea through healthcare, education, and play since 2010.",
   keywords: [
     'charity',
     'Eritrea',
     'children',
+    'special needs',
     'healthcare',
     'education',
-    'Mesfney Love Foundation',
+    "Mesfiney's Love Foundation",
     'MLF',
     'donate',
   ],
   openGraph: {
     type: 'website',
     locale: 'en_GB',
-    siteName: 'Mesfney Love Foundation',
+    siteName: "Mesfiney's Love Foundation",
   },
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },

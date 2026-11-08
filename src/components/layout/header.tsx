@@ -20,10 +20,10 @@ export function Header() {
           <Heart className="size-7 fill-brand-500 text-brand-500" />
           <div className="flex flex-col">
             <span className="text-base font-bold leading-tight text-foreground sm:text-lg">
-              Mesfney Love Foundation
+              Mesfiney&apos;s Love Foundation
             </span>
             <span className="hidden text-xs text-muted-foreground sm:block">
-              Supporting sick children in Eritrea
+              Supporting children with special needs in Eritrea
             </span>
           </div>
         </Link>

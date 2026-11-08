@@ -4,10 +4,12 @@ export const financialRecords: FinancialRecord[] = [
   {
     id: 'total',
     period: 'Total Raised & Spent',
+    periodTi: 'ጠቕላላ ዝተኣከበን ዝተወጽአን',
     yearStart: 2008,
     yearEnd: 2025,
     amountSpent: 24694.61,
     notes: 'Headline figure - total funds raised and spent since founding.',
+    notesTi: 'ካብ ምምስራት ጀሚሩ ጠቕላላ ዝተኣከበን ዝተወጽአን ገንዘብ።',
   },
   {
     id: '2010-orota',
@@ -16,6 +18,7 @@ export const financialRecords: FinancialRecord[] = [
     amountSpent: 2338.25,
     amountRaised: 5836.69,
     notes: 'Account up to March 2011.',
+    notesTi: 'ክሳብ መጋቢት 2011 ሕሳብ።',
     projectId: 'orota-playroom-2010',
   },
   {
@@ -25,6 +28,7 @@ export const financialRecords: FinancialRecord[] = [
     yearEnd: 2024,
     amountSpent: 15148.36,
     notes: 'Spent in partnership with Era.',
+    notesTi: 'ምስ Era ብምትሕብባር ዝተወጽአ።',
     projectId: 'abraha-bahter-2017',
   },
   {
@@ -33,6 +37,7 @@ export const financialRecords: FinancialRecord[] = [
     yearStart: 2021,
     amountSpent: 1000,
     notes: 'Wheelchair for autism kids during COVID (tin collection).',
+    notesTi: 'ኣብ እዋን ኮቪድ ንኣውቲዝም ቆልዑ ዊልቸር (ምእካብ ቆርቆሮ)።',
   },
   {
     id: '2025-laptops',
@@ -40,6 +45,7 @@ export const financialRecords: FinancialRecord[] = [
     yearStart: 2025,
     amountSpent: 6208,
     notes: 'Spent on 16 laptops.',
+    notesTi: 'ኣብ 16 ላፕቶፕ ዝተወጽአ።',
     projectId: 'laptops-2025',
   },
 ];

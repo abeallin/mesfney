@@ -9,24 +9,28 @@ const stats = [
     value: `£${SITE.impact.totalRaised.toLocaleString('en-GB')}`,
     icon: PoundSterling,
     description: 'Directly supporting children in Eritrea',
+    accent: 'brand' as const,
   },
   {
     label: 'Children Helped',
     value: `${SITE.impact.kidsHelped}+`,
     icon: Users,
     description: 'With autism, Down syndrome, and more',
+    accent: 'teal' as const,
   },
   {
     label: 'Projects Completed',
     value: String(SITE.impact.projectCount),
     icon: FolderHeart,
     description: 'Playrooms, education, equipment',
+    accent: 'brand' as const,
   },
   {
     label: 'Years of Impact',
     value: `${SITE.impact.yearsSinceFoundation}+`,
     icon: CalendarDays,
-    description: 'Serving communities since 2008',
+    description: 'Serving communities since 2010',
+    accent: 'teal' as const,
   },
 ];
 
@@ -43,9 +47,22 @@ export function ImpactStats() {
       </div>
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat) => (
-          <Card key={stat.label} className="text-center">
+          <Card
+            key={stat.label}
+            className={
+              stat.accent === 'teal'
+                ? 'border-t-4 border-t-trust-600 text-center'
+                : 'border-t-4 border-t-brand-500 text-center'
+            }
+          >
             <CardContent className="pt-6">
-              <stat.icon className="mx-auto size-8 text-brand-500" />
+              <stat.icon
+                className={
+                  stat.accent === 'teal'
+                    ? 'mx-auto size-8 text-trust-600'
+                    : 'mx-auto size-8 text-brand-500'
+                }
+              />
               <p className="mt-4 text-3xl font-bold text-foreground">
                 {stat.value}
               </p>

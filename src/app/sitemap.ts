@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const locales = ['en', 'ti'];
   const routes = [
     '',
-    '/about',
+    '/our-story',
     '/achievements',
     '/donate',
     '/volunteer',
