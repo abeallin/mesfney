@@ -11,10 +11,12 @@ export function DonationOptions({ locale }: DonationOptionsProps) {
 
   return (
     <div className="grid gap-6 sm:grid-cols-2">
-      <Card>
+      <Card className="border-t-4 border-t-brand-500 transition-all hover:shadow-md">
         <CardHeader>
-          <Heart className="size-8 text-brand-500" />
-          <CardTitle className="mt-2">{t.donate.oneTimeTitle}</CardTitle>
+          <div className="flex size-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+            <Heart className="size-6" />
+          </div>
+          <CardTitle className="mt-3">{t.donate.oneTimeTitle}</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground">
@@ -23,10 +25,12 @@ export function DonationOptions({ locale }: DonationOptionsProps) {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="border-t-4 border-t-trust-600 transition-all hover:shadow-md">
         <CardHeader>
-          <CalendarHeart className="size-8 text-trust-500" />
-          <CardTitle className="mt-2">{t.donate.regularTitle}</CardTitle>
+          <div className="flex size-12 items-center justify-center rounded-xl bg-trust-50 text-trust-600">
+            <CalendarHeart className="size-6" />
+          </div>
+          <CardTitle className="mt-3">{t.donate.regularTitle}</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground">

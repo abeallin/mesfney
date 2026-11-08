@@ -7,11 +7,13 @@ import type { Project } from '@/types';
 interface ProjectCardProps {
   project: Project;
   locale: string;
+  accent?: 'brand' | 'teal';
 }
 
-export function ProjectCard({ project, locale }: ProjectCardProps) {
+export function ProjectCard({ project, locale, accent = 'brand' }: ProjectCardProps) {
   const t = getTranslations(locale);
   const isTi = locale === 'ti';
+  const isTeal = accent === 'teal';
   const yearLabel =
     project.yearEnd
       ? `${project.yearStart} - ${project.yearEnd}`
@@ -21,12 +23,25 @@ export function ProjectCard({ project, locale }: ProjectCardProps) {
   const achievement = (isTi && project.achievementTi) || project.achievement;
 
   return (
-    <Card className="border-l-4 border-l-brand-500">
+    <Card
+      className={
+        isTeal
+          ? 'border-l-4 border-l-trust-600 transition-all hover:shadow-md'
+          : 'border-l-4 border-l-brand-500 transition-all hover:shadow-md'
+      }
+    >
       <CardContent className="pt-6">
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
             <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="secondary" className="bg-brand-100 text-brand-700">
+              <Badge
+                variant="secondary"
+                className={
+                  isTeal
+                    ? 'bg-trust-100 text-trust-800'
+                    : 'bg-brand-100 text-brand-700'
+                }
+              >
                 {yearLabel}
               </Badge>
               {project.partner && (

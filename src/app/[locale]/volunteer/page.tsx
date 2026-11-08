@@ -56,19 +56,35 @@ export default async function VolunteerPage({
         </div>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          {volunteerAreas.map((area) => (
-            <Card key={area.title} className="text-center">
-              <CardHeader>
-                <area.icon className="mx-auto size-10 text-brand-500" />
-                <CardTitle className="mt-2">{area.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  {area.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+          {volunteerAreas.map((area, idx) => {
+            const isTeal = idx % 2 === 1;
+            return (
+              <Card
+                key={area.title}
+                className={
+                  isTeal
+                    ? 'border-t-4 border-t-trust-600 text-center transition-all hover:-translate-y-0.5 hover:shadow-md'
+                    : 'border-t-4 border-t-brand-500 text-center transition-all hover:-translate-y-0.5 hover:shadow-md'
+                }
+              >
+                <CardHeader>
+                  <area.icon
+                    className={
+                      isTeal
+                        ? 'mx-auto size-10 text-trust-600'
+                        : 'mx-auto size-10 text-brand-500'
+                    }
+                  />
+                  <CardTitle className="mt-2">{area.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">
+                    {area.description}
+                  </p>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
 
         {/* Volunteer Sign-Up Form */}
