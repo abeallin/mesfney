@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -7,10 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { SectionWrapper } from '@/components/layout/section-wrapper';
 import { projects } from '@/data/projects';
-import { useLocale } from '@/hooks/use-locale';
 
-export function FeaturedProjects() {
-  const locale = useLocale();
+export function FeaturedProjects({ locale }: { locale: string }) {
   const isTi = locale === 'ti';
   const highlighted = [projects[0], projects[2], projects[4]].filter(Boolean);
 

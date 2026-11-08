@@ -5,6 +5,10 @@ import { JsonLd } from '@/components/shared/json-ld';
 import { Providers } from '@/components/providers';
 import { SITE } from '@/lib/constants';
 
+export function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'ti' }];
+}
+
 export default async function LocaleLayout({
   children,
   params,
@@ -18,7 +22,7 @@ export default async function LocaleLayout({
     <Providers locale={locale}>
       <Header />
       <main className="min-h-screen">{children}</main>
-      <Footer />
+      <Footer locale={locale} />
       <Toaster richColors position="top-center" />
       <JsonLd
         data={{

@@ -1,15 +1,12 @@
-'use client';
-
 import Link from 'next/link';
 import { Heart, Mail, Phone } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import { Separator } from '@/components/ui/separator';
 import { SITE, NAV_LINKS, NAV_KEY_MAP } from '@/lib/constants';
-import { useLocale } from '@/hooks/use-locale';
+import { getTranslations } from '@/lib/get-translations';
 
-export function Footer() {
-  const locale = useLocale();
-  const { t } = useTranslation();
+export function Footer({ locale }: { locale: string }) {
+  const t = getTranslations(locale);
+  const navMap = t.nav as Record<string, string>;
 
   return (
     <footer className="border-t bg-muted/50">
@@ -22,13 +19,13 @@ export function Footer() {
               <span className="font-bold text-foreground">{SITE.name}</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              {t('footer.about')}
+              {t.footer.about}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h3 className="mb-3 font-semibold text-foreground">{t('footer.quickLinks')}</h3>
+            <h3 className="mb-3 font-semibold text-foreground">{t.footer.quickLinks}</h3>
             <ul className="space-y-1">
               {NAV_LINKS.map((link) => {
                 const href = link.href === '/' ? `/${locale}` : `/${locale}${link.href}`;
@@ -38,7 +35,7 @@ export function Footer() {
                       href={href}
                       className="inline-block py-1 text-sm text-muted-foreground transition-colors hover:text-brand-700"
                     >
-                      {t(`nav.${NAV_KEY_MAP[link.href]}`)}
+                      {navMap[NAV_KEY_MAP[link.href]]}
                     </Link>
                   </li>
                 );
@@ -48,7 +45,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="mb-3 font-semibold text-foreground">{t('footer.contactUs')}</h3>
+            <h3 className="mb-3 font-semibold text-foreground">{t.footer.contactUs}</h3>
             <ul className="space-y-1 text-sm text-muted-foreground">
               <li className="flex items-center gap-2 py-1">
                 <Mail className="size-4 shrink-0 text-trust-600" />
@@ -73,9 +70,9 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="mb-3 font-semibold text-foreground">{t('footer.legal')}</h3>
+            <h3 className="mb-3 font-semibold text-foreground">{t.footer.legal}</h3>
             <p className="text-sm text-muted-foreground">
-              {t('common.charityRegistration')}
+              {t.common.charityRegistration}
             </p>
             <p className="mt-1 text-sm text-muted-foreground">
               {SITE.legalName}

@@ -4,14 +4,20 @@ import { MissionPreview } from '@/components/home/mission-preview';
 import { FeaturedProjects } from '@/components/home/featured-projects';
 import { CTABanner } from '@/components/home/cta-banner';
 
-export default function HomePage() {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
   return (
     <>
-      <HeroSection />
+      <HeroSection locale={locale} />
       <ImpactStats />
-      <MissionPreview />
-      <FeaturedProjects />
-      <CTABanner />
+      <MissionPreview locale={locale} />
+      <FeaturedProjects locale={locale} />
+      <CTABanner locale={locale} />
     </>
   );
 }

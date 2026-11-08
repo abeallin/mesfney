@@ -1,14 +1,10 @@
-'use client';
-
 import Link from 'next/link';
 import { Heart, Users, ShieldCheck, Sparkles, Globe2 } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
-import { useLocale } from '@/hooks/use-locale';
+import { getTranslations } from '@/lib/get-translations';
 
-export function HeroSection() {
-  const locale = useLocale();
-  const { t } = useTranslation();
+export function HeroSection({ locale }: { locale: string }) {
+  const t = getTranslations(locale);
 
   return (
     <section className="relative overflow-hidden border-b border-brand-100/80 bg-gradient-to-br from-brand-50/90 via-white to-trust-50/90">
@@ -26,18 +22,18 @@ export function HeroSection() {
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-200/80 bg-white/90 px-4 py-1.5 text-sm font-medium text-brand-800 shadow-xs backdrop-blur">
             <Heart className="size-4 fill-brand-500 text-brand-500" />
-            <span>{t('home.badge')}</span>
+            <span>{t.home.badge}</span>
           </div>
 
           <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            {t('home.heroTitle')}{' '}
+            {t.home.heroTitle}{' '}
             <span className="bg-gradient-to-r from-brand-600 via-brand-500 to-trust-600 bg-clip-text text-transparent">
-              {t('home.heroTitleHighlight')}
+              {t.home.heroTitleHighlight}
             </span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-            {t('home.heroDescription')}
+            {t.home.heroDescription}
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -48,7 +44,7 @@ export function HeroSection() {
             >
               <Link href={`/${locale}/donate`}>
                 <Heart className="size-5 fill-white/20" />
-                {t('home.donateCta')}
+                {t.home.donateCta}
               </Link>
             </Button>
             <Button
@@ -59,7 +55,7 @@ export function HeroSection() {
             >
               <Link href={`/${locale}/volunteer`}>
                 <Users className="size-5 text-trust-600" />
-                {t('home.volunteerCta')}
+                {t.home.volunteerCta}
               </Link>
             </Button>
           </div>

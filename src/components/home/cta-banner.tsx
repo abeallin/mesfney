@@ -1,14 +1,10 @@
-'use client';
-
 import Link from 'next/link';
 import { Heart, Users } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
-import { useLocale } from '@/hooks/use-locale';
+import { getTranslations } from '@/lib/get-translations';
 
-export function CTABanner() {
-  const locale = useLocale();
-  const { t } = useTranslation();
+export function CTABanner({ locale }: { locale: string }) {
+  const t = getTranslations(locale);
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-brand-800 via-brand-700 to-trust-900">
@@ -22,10 +18,10 @@ export function CTABanner() {
       />
       <div className="relative mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-8">
         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          {t('home.ctaTitle')}
+          {t.home.ctaTitle}
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-brand-100">
-          {t('home.ctaDescription')}
+          {t.home.ctaDescription}
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button
@@ -35,7 +31,7 @@ export function CTABanner() {
           >
             <Link href={`/${locale}/donate`}>
               <Heart className="size-5 fill-brand-500 text-brand-500" />
-              {t('home.ctaDonate')}
+              {t.home.ctaDonate}
             </Link>
           </Button>
           <Button
@@ -46,7 +42,7 @@ export function CTABanner() {
           >
             <Link href={`/${locale}/volunteer`}>
               <Users className="size-5" />
-              {t('home.ctaVolunteer')}
+              {t.home.ctaVolunteer}
             </Link>
           </Button>
         </div>
