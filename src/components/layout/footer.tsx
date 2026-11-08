@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Heart, Mail, Phone } from 'lucide-react';
+import { Heart, Mail, Phone, ExternalLink } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { SITE, NAV_LINKS, NAV_KEY_MAP } from '@/lib/constants';
 import { getTranslations } from '@/lib/get-translations';
@@ -71,9 +71,15 @@ export function Footer({ locale }: { locale: string }) {
           {/* Legal */}
           <div>
             <h3 className="mb-3 font-semibold text-foreground">{t.footer.legal}</h3>
-            <p className="text-sm text-muted-foreground">
-              {t.common.charityRegistration}
-            </p>
+            <a
+              href={SITE.charityCommissionUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-brand-700"
+            >
+              <span>{t.common.charityRegistration}</span>
+              <ExternalLink className="size-3.5" />
+            </a>
             <p className="mt-1 text-sm text-muted-foreground">
               {t.Header.title}
             </p>

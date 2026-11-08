@@ -3,6 +3,8 @@ export const SITE = {
   legalName: "Mesfiney's Love Foundation",
   shortName: 'MLF',
   registrationNumber: '1139089',
+  charityCommissionUrl:
+    'https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5011462',
   foundedDate: '2008-07-04',
   founder: 'Nebiat Yoseph',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://mesfneylove.org',
@@ -15,7 +17,7 @@ export const SITE = {
     totalRaised: 24694.61,
     kidsHelped: 20,
     yearsSinceFoundation: new Date().getFullYear() - 2010,
-    projectCount: 5,
+    projectCount: 6,
   },
 } as const;
 

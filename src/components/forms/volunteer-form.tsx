@@ -28,6 +28,9 @@ export function VolunteerForm() {
   useEffect(() => {
     if (state?.success) {
       toast.success(state.message);
+      if (state.mailtoUrl) {
+        window.location.href = state.mailtoUrl;
+      }
       formRef.current?.reset();
     } else if (state && !state.success) {
       toast.error(state.message);

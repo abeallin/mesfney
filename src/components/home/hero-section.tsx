@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Heart, Users, ShieldCheck, Sparkles, ArrowUpRight } from 'lucide-react';
+import { Heart, Users, ShieldCheck, Sparkles, ArrowUpRight, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { SITE } from '@/lib/constants';
 import { getTranslations } from '@/lib/get-translations';
 
 export function HeroSection({ locale }: { locale: string }) {
@@ -23,10 +24,16 @@ export function HeroSection({ locale }: { locale: string }) {
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
           {/* Editorial Left Column */}
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/90 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-brand-800 shadow-2xs">
+            <a
+              href={SITE.charityCommissionUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/90 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-brand-800 shadow-2xs transition-colors hover:border-brand-300 hover:bg-brand-50"
+            >
               <span className="size-2 rounded-full bg-brand-500" />
               <span>{t.home.badge}</span>
-            </div>
+              <ExternalLink className="size-3 text-brand-600" />
+            </a>
 
             <h1 className="mt-6 font-serif text-4xl font-semibold leading-[1.12] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
               {t.home.heroTitle}{' '}

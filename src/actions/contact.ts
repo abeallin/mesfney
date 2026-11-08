@@ -1,5 +1,6 @@
 'use server';
 
+import { SITE } from '@/lib/constants';
 import { contactFormSchema, type FormState } from '@/lib/schemas';
 
 export async function submitContactForm(
@@ -23,21 +24,44 @@ export async function submitContactForm(
     };
   }
 
-  // TODO: Replace with Resend email integration
-  // import { Resend } from 'resend';
-  // const resend = new Resend(process.env.RESEND_API_KEY);
-  // await resend.emails.send({
-  //   from: 'Mesfney Love Foundation <noreply@mesfneylove.org>',
-  //   to: 'mesfneylove@gmail.com',
-  //   subject: `Website Contact: ${result.data.subject}`,
-  //   replyTo: result.data.email,
-  //   text: `From: ${result.data.name} (${result.data.email})\n\n${result.data.message}`,
-  // });
+  const { name, email, phone, subject, message } = result.data;
+  const emailBody = `From: ${name} (${email})${phone ? `\nPhone: ${phone}` : ''}\n\n${message}`;
 
-  console.log('[Contact Form Submission]', result.data);
+  if (process.env.RESEND_API_KEY) {
+    try {
+      const res = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: "Mesfiney's Love Foundation <onboarding@resend.dev>",
+          to: [SITE.contact.email],
+          reply_to: email,
+          subject: `Website Contact: ${subject}`,
+          text: emailBody,
+        }),
+      });
+      if (res.ok) {
+        return {
+          success: true,
+          message: 'Thank you for your message! We will be in touch soon.',
+        };
+      }
+    } catch (err) {
+      console.error('[Contact Form Resend Error]', err);
+    }
+  }
+
+  const mailtoUrl = `mailto:${SITE.contact.email}?subject=${encodeURIComponent(
+    `Website Contact: ${subject}`
+  )}&body=${encodeURIComponent(emailBody)}`;
 
   return {
     success: true,
-    message: 'Thank you for your message! We will be in touch soon.',
+    message:
+      'Thank you! Opening your email client to send your message directly to our inbox.',
+    mailtoUrl,
   };
 }

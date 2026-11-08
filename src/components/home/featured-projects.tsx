@@ -7,7 +7,12 @@ import { projects } from '@/data/projects';
 
 export function FeaturedProjects({ locale }: { locale: string }) {
   const isTi = locale === 'ti';
-  const highlighted = [projects[0], projects[2], projects[4]].filter(Boolean);
+  const featuredIds = new Set([
+    'orota-playroom-2010',
+    'abraha-bahter-2017',
+    'laptops-2025',
+  ]);
+  const highlighted = projects.filter((p) => featuredIds.has(p.id));
 
   return (
     <SectionWrapper>

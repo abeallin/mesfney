@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Landmark, Mail, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Landmark, Mail, CheckCircle2, ArrowRight, Sparkles, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PageHeader } from '@/components/shared/page-header';
 import { SectionWrapper } from '@/components/layout/section-wrapper';
@@ -92,37 +92,54 @@ export default async function DonatePage({
                   key={tier.amount}
                   className={
                     isHighlighted
-                      ? 'rounded-3xl bg-trust-950 p-7 text-white shadow-sm'
-                      : 'rounded-3xl border border-border bg-white p-7 shadow-2xs'
+                      ? 'flex flex-col justify-between rounded-3xl bg-trust-950 p-7 text-white shadow-sm'
+                      : 'flex flex-col justify-between rounded-3xl border border-border bg-white p-7 shadow-2xs'
                   }
                 >
-                  <span
-                    className={
-                      isHighlighted
-                        ? 'font-serif text-4xl font-semibold text-brand-300'
-                        : 'font-serif text-4xl font-semibold text-brand-700'
-                    }
-                  >
-                    {tier.amount}
-                  </span>
-                  <h3
-                    className={
-                      isHighlighted
-                        ? 'mt-4 font-serif text-xl font-semibold text-white'
-                        : 'mt-4 font-serif text-xl font-semibold text-foreground'
-                    }
-                  >
-                    {tier.title}
-                  </h3>
-                  <p
-                    className={
-                      isHighlighted
-                        ? 'mt-2 text-sm leading-relaxed text-trust-100/85'
-                        : 'mt-2 text-sm leading-relaxed text-muted-foreground'
-                    }
-                  >
-                    {tier.desc}
-                  </p>
+                  <div>
+                    <span
+                      className={
+                        isHighlighted
+                          ? 'font-serif text-4xl font-semibold text-brand-300'
+                          : 'font-serif text-4xl font-semibold text-brand-700'
+                      }
+                    >
+                      {tier.amount}
+                    </span>
+                    <h3
+                      className={
+                        isHighlighted
+                          ? 'mt-4 font-serif text-xl font-semibold text-white'
+                          : 'mt-4 font-serif text-xl font-semibold text-foreground'
+                      }
+                    >
+                      {tier.title}
+                    </h3>
+                    <p
+                      className={
+                        isHighlighted
+                          ? 'mt-2 text-sm leading-relaxed text-trust-100/85'
+                          : 'mt-2 text-sm leading-relaxed text-muted-foreground'
+                      }
+                    >
+                      {tier.desc}
+                    </p>
+                  </div>
+                  <div className="mt-6 pt-2">
+                    <a
+                      href={`mailto:${SITE.contact.email}?subject=${encodeURIComponent(
+                        `Donation Enquiry (${tier.amount} - ${tier.title})`
+                      )}`}
+                      className={
+                        isHighlighted
+                          ? 'inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-brand-300 hover:text-brand-200'
+                          : 'inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-brand-700 hover:text-brand-800'
+                      }
+                    >
+                      <span>{isTi ? 'በዚ መጠን ልገስ' : `Pledge ${tier.amount}`}</span>
+                      <ArrowRight className="size-3.5" />
+                    </a>
+                  </div>
                 </div>
               );
             })}
@@ -182,6 +199,37 @@ export default async function DonatePage({
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+
+        {/* UK Gift Aid Callout */}
+        <div className="mt-8 rounded-3xl border border-trust-200 bg-trust-50/70 p-6 sm:p-8">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-trust-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-trust-800">
+                <Sparkles className="size-3.5 text-trust-700" />
+                <span>{isTi ? 'ናይ ዓዲ እንግሊዝ ግብሪ ሓገዝ (Gift Aid)' : 'UK Gift Aid Eligible (+25%)'}</span>
+              </div>
+              <h3 className="mt-3 font-serif text-xl font-semibold text-foreground sm:text-2xl">
+                {isTi
+                  ? 'ኣብ ዓዲ እንግሊዝ ግብሪ ትኸፍሉ እንተ ኾይንኩም፡ ልግስኹም ብ25% ይውስኽ'
+                  : 'Boost Your Donation by 25% at No Extra Cost'}
+              </h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                {isTi
+                  ? 'ከም ኣብ ዓዲ እንግሊዝ ዝተመዝገበ ግብረ-ሰናይ (ቁጽሪ 1139089)፡ ንነፍሲ ወከፍ እትልግስዎ £1 ተወሳኺ 25p ካብ መንግስቲ ክንሓትት ንኽእል ኢና።'
+                  : "As a registered UK charity (#1139089), Mesfiney's Love Foundation can reclaim 25p of Gift Aid for every £1 you donate if you are a UK taxpayer. Ask us for a Gift Aid declaration when making your gift."}
+              </p>
+            </div>
+            <a
+              href={SITE.charityCommissionUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex shrink-0 items-center gap-1.5 rounded-xl border border-trust-300 bg-white px-4 py-2.5 text-xs font-semibold text-trust-900 shadow-2xs transition-colors hover:bg-trust-100"
+            >
+              <span>{isTi ? 'ምዝገባ ግብረ-ሰናይ ርአ' : 'Verify Charity #1139089'}</span>
+              <ExternalLink className="size-3.5 text-trust-700" />
+            </a>
           </div>
         </div>
 

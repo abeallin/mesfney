@@ -47,6 +47,19 @@ export const projects: Project[] = [
     amountSpent: 15148.36,
   },
   {
+    id: 'wheelchair-autism-2021',
+    yearStart: 2021,
+    title: 'Wheelchair Support for Children with Autism',
+    titleTi: 'ንኣውቲዝም ዘለዎም ቆልዑ ደገፍ ዊልቸር',
+    achievement: 'Wheelchair for autism kids during COVID (tin collection)',
+    achievementTi: 'ኣብ እዋን ኮቪድ ንኣውቲዝም ቆልዑ ዊልቸር (ምእካብ ቆርቆሮ)',
+    description:
+      'Funded a specialised wheelchair for children with autism during the COVID-19 pandemic through community charity tin collections.',
+    descriptionTi:
+      'ኣብ እዋን ለበዳ ኮቪድ-19 ብምእካብ ናይ ግብረ-ሰናይ ቆርቆሮ ኣብ ኤርትራ ንኣውቲዝም ዘለዎም ቆልዑ ዊልቸር ተዓዲጉ።',
+    amountSpent: 1000,
+  },
+  {
     id: 'boarding-school-2024',
     yearStart: 2024,
     title: 'Boarding School Support',

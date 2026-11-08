@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { ShieldCheck, Scale, Calendar } from 'lucide-react';
+import { ShieldCheck, Scale, Calendar, ExternalLink } from 'lucide-react';
 import { PageHeader } from '@/components/shared/page-header';
 import { SectionWrapper } from '@/components/layout/section-wrapper';
+import { SITE } from '@/lib/constants';
 import { getTranslations } from '@/lib/get-translations';
 
 export const metadata: Metadata = {
@@ -176,10 +177,16 @@ export default async function OurStoryPage({
             </div>
 
             <div className="space-y-3 rounded-2xl bg-muted/70 p-6 md:col-span-4">
-              <div className="flex items-center gap-2.5 text-sm font-semibold text-foreground">
+              <a
+                href={SITE.charityCommissionUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 text-sm font-semibold text-trust-800 hover:underline"
+              >
                 <ShieldCheck className="size-4 text-trust-700" />
                 <span>{t.about.credentialCharityNo}</span>
-              </div>
+                <ExternalLink className="size-3.5 text-trust-600" />
+              </a>
               <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
                 <Calendar className="size-4 text-brand-600" />
                 <span>{t.about.credentialConstitution}</span>
