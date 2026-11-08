@@ -10,7 +10,7 @@ import { getTranslations } from '@/lib/get-translations';
 export const metadata: Metadata = {
   title: 'Our Team',
   description:
-    'Meet the dedicated volunteers who make the Mesfney Love Foundation possible.',
+    "Meet the dedicated trustees and volunteers who make Mesfiney's Love Foundation possible.",
 };
 
 export default async function TeamPage({
@@ -31,15 +31,19 @@ export default async function TeamPage({
       <SectionWrapper>
         <TeamGrid locale={locale} />
 
-        <div className="mt-16 rounded-lg bg-brand-50 p-8 text-center">
-          <Users className="mx-auto size-10 text-brand-500" />
-          <h2 className="mt-4 text-2xl font-bold text-foreground">
+        <div className="mt-16 rounded-3xl bg-trust-950 p-8 text-center text-white sm:p-12">
+          <Users className="mx-auto size-9 text-brand-300" />
+          <h2 className="mt-4 font-serif text-2xl font-semibold sm:text-3xl">
             {t.team.joinTitle}
           </h2>
-          <p className="mt-2 max-w-md mx-auto text-muted-foreground">
+          <p className="mx-auto mt-2 max-w-md text-trust-100/85">
             {t.team.joinDesc}
           </p>
-          <Button asChild className="mt-6">
+          <Button
+            asChild
+            size="lg"
+            className="mt-6 rounded-xl bg-brand-600 text-white hover:bg-brand-700"
+          >
             <Link href={`/${locale}/volunteer`}>{t.team.becomeVolunteer}</Link>
           </Button>
         </div>

@@ -1,6 +1,4 @@
 import type { Metadata } from 'next';
-import { Megaphone, CalendarDays, Handshake } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PageHeader } from '@/components/shared/page-header';
 import { SectionWrapper } from '@/components/layout/section-wrapper';
 import { VolunteerForm } from '@/components/forms/volunteer-form';
@@ -9,7 +7,7 @@ import { getTranslations } from '@/lib/get-translations';
 export const metadata: Metadata = {
   title: 'Volunteer',
   description:
-    'Join the Mesfney Love Foundation team. Volunteer in fundraising, publicity, events, and more.',
+    "Join Mesfiney's Love Foundation team. Volunteer in fundraising, publicity, events, and more.",
 };
 
 export default async function VolunteerPage({
@@ -22,17 +20,17 @@ export default async function VolunteerPage({
 
   const volunteerAreas = [
     {
-      icon: Handshake,
+      num: '01',
       title: t.volunteer.fundraisingTitle,
       description: t.volunteer.fundraisingDesc,
     },
     {
-      icon: Megaphone,
+      num: '02',
       title: t.volunteer.publicityTitle,
       description: t.volunteer.publicityDesc,
     },
     {
-      icon: CalendarDays,
+      num: '03',
       title: t.volunteer.eventsTitle,
       description: t.volunteer.eventsDesc,
     },
@@ -46,59 +44,56 @@ export default async function VolunteerPage({
       />
 
       <SectionWrapper>
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-2xl font-bold text-foreground">
-            {t.volunteer.howTitle}
-          </h2>
-          <p className="mt-2 text-muted-foreground">
-            {t.volunteer.howDesc}
-          </p>
-        </div>
-
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          {volunteerAreas.map((area, idx) => {
-            const isTeal = idx % 2 === 1;
-            return (
-              <Card
-                key={area.title}
-                className={
-                  isTeal
-                    ? 'border-t-4 border-t-trust-600 text-center transition-all hover:-translate-y-0.5 hover:shadow-md'
-                    : 'border-t-4 border-t-brand-500 text-center transition-all hover:-translate-y-0.5 hover:shadow-md'
-                }
-              >
-                <CardHeader>
-                  <area.icon
-                    className={
-                      isTeal
-                        ? 'mx-auto size-10 text-trust-600'
-                        : 'mx-auto size-10 text-brand-500'
-                    }
-                  />
-                  <CardTitle className="mt-2">{area.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    {area.description}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-
-        {/* Volunteer Sign-Up Form */}
-        <Card className="mt-16">
-          <CardHeader>
-            <CardTitle className="text-2xl">{t.volunteer.formTitle}</CardTitle>
-            <p className="text-muted-foreground">
-              {t.volunteer.formDesc}
+        <div className="grid items-start gap-12 lg:grid-cols-12">
+          {/* Left Column: Ways to Help */}
+          <div className="lg:col-span-5">
+            <p className="text-xs font-semibold uppercase tracking-widest text-brand-700">
+              Make an Impact
             </p>
-          </CardHeader>
-          <CardContent>
-            <VolunteerForm />
-          </CardContent>
-        </Card>
+            <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground">
+              {t.volunteer.howTitle}
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              {t.volunteer.howDesc}
+            </p>
+
+            <div className="mt-8 space-y-4">
+              {volunteerAreas.map((area) => (
+                <div
+                  key={area.title}
+                  className="rounded-2xl border border-border bg-white p-6 shadow-2xs"
+                >
+                  <div className="flex items-baseline gap-4">
+                    <span className="font-serif text-2xl font-semibold text-brand-600">
+                      {area.num}
+                    </span>
+                    <div>
+                      <h3 className="font-serif text-lg font-semibold text-foreground">
+                        {area.title}
+                      </h3>
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                        {area.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column: Volunteer Sign-Up Form */}
+          <div className="lg:col-span-7">
+            <div className="rounded-3xl border border-border bg-white p-6 shadow-xs sm:p-10">
+              <h2 className="font-serif text-2xl font-semibold text-foreground">
+                {t.volunteer.formTitle}
+              </h2>
+              <p className="mt-1 mb-6 text-sm text-muted-foreground">
+                {t.volunteer.formDesc}
+              </p>
+              <VolunteerForm />
+            </div>
+          </div>
+        </div>
       </SectionWrapper>
     </>
   );

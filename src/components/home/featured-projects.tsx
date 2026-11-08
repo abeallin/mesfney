@@ -1,8 +1,7 @@
 import Link from 'next/link';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { SectionWrapper } from '@/components/layout/section-wrapper';
 import { projects } from '@/data/projects';
 
@@ -14,26 +13,25 @@ export function FeaturedProjects({ locale }: { locale: string }) {
     <SectionWrapper>
       <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
         <div>
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-trust-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-trust-800 border border-trust-200">
-            <Sparkles className="size-3.5 text-trust-600" />
-            <span>{isTi ? 'ዓወታትና' : 'Key Milestones'}</span>
-          </div>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground">
-            {isTi ? 'ዝተዓወትናዮም ፕሮጀክትታት' : 'Recent & Milestone Projects'}
+          <p className="text-xs font-semibold uppercase tracking-widest text-trust-700">
+            {isTi ? 'ዓወታትና' : 'Proven Track Record'}
+          </p>
+          <h2 className="mt-2 font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            {isTi ? 'ዝተዓወትናዮም ፕሮጀክትታት' : 'Selected Projects in Eritrea'}
           </h2>
-          <p className="mt-1 text-muted-foreground">
+          <p className="mt-2 text-muted-foreground">
             {isTi
               ? 'ካብ 2010 ጀሚሩ ኣብ ኤርትራ ዝተሰርሑ ቀንዲ ስራሓትና'
-              : 'From hospital playrooms to educational laptops for children in Eritrea.'}
+              : 'From hospital playrooms to educational laptops for children with special needs.'}
           </p>
         </div>
         <Button
           asChild
           variant="outline"
-          className="border-trust-300 text-trust-800 hover:bg-trust-50"
+          className="rounded-xl border-border bg-white text-foreground hover:bg-muted"
         >
           <Link href={`/${locale}/achievements`}>
-            {isTi ? 'ኩሉ ታሪኽ ርአ' : 'View Full Timeline'}
+            {isTi ? 'ኩሉ ታሪኽ ርአ' : 'Explore Full Timeline'}
             <ArrowRight className="size-4" />
           </Link>
         </Button>
@@ -41,9 +39,9 @@ export function FeaturedProjects({ locale }: { locale: string }) {
 
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {highlighted.map((project, idx) => {
-          const isTeal = idx % 2 === 1;
+          const isMiddle = idx === 1;
           const yearLabel = project.yearEnd
-            ? `${project.yearStart} – ${project.yearEnd}`
+            ? `${project.yearStart}–${String(project.yearEnd).slice(-2)}`
             : String(project.yearStart);
           const title = (isTi && project.titleTi) || project.title;
           const description =
@@ -52,59 +50,101 @@ export function FeaturedProjects({ locale }: { locale: string }) {
             project.achievement;
 
           return (
-            <Card
+            <div
               key={project.id}
               className={
-                isTeal
-                  ? 'border-t-4 border-t-trust-600 transition-all hover:-translate-y-1 hover:shadow-md'
-                  : 'border-t-4 border-t-brand-500 transition-all hover:-translate-y-1 hover:shadow-md'
+                isMiddle
+                  ? 'group flex flex-col justify-between rounded-3xl bg-trust-950 p-7 text-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg'
+                  : 'group flex flex-col justify-between rounded-3xl border border-border bg-white p-7 shadow-2xs transition-all hover:-translate-y-1 hover:shadow-md'
               }
             >
-              <CardContent className="flex h-full flex-col justify-between pt-6">
-                <div>
-                  <div className="flex flex-wrap items-center gap-2">
+              <div>
+                <div className="flex items-baseline justify-between gap-2">
+                  <span
+                    className={
+                      isMiddle
+                        ? 'font-serif text-3xl font-semibold text-brand-300'
+                        : 'font-serif text-3xl font-semibold text-brand-700'
+                    }
+                  >
+                    {yearLabel}
+                  </span>
+                  {project.partner && (
                     <Badge
-                      variant="secondary"
+                      variant="outline"
                       className={
-                        isTeal
-                          ? 'bg-trust-100 text-trust-800'
-                          : 'bg-brand-100 text-brand-800'
+                        isMiddle
+                          ? 'border-white/20 bg-white/10 text-xs text-trust-100'
+                          : 'border-border bg-muted/60 text-xs text-muted-foreground'
                       }
                     >
-                      {yearLabel}
+                      {project.partner}
                     </Badge>
-                    {project.partner && (
-                      <Badge variant="outline" className="text-xs">
-                        {project.partner}
-                      </Badge>
-                    )}
-                  </div>
-                  <h3 className="mt-4 text-lg font-bold text-foreground">
-                    {title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {description}
-                  </p>
+                  )}
                 </div>
 
-                {project.amountSpent && (
-                  <div className="mt-6 border-t pt-4">
+                <h3
+                  className={
+                    isMiddle
+                      ? 'mt-5 font-serif text-xl font-semibold text-white'
+                      : 'mt-5 font-serif text-xl font-semibold text-foreground'
+                  }
+                >
+                  {title}
+                </h3>
+                <p
+                  className={
+                    isMiddle
+                      ? 'mt-2.5 text-sm leading-relaxed text-trust-100/85'
+                      : 'mt-2.5 text-sm leading-relaxed text-muted-foreground'
+                  }
+                >
+                  {description}
+                </p>
+              </div>
+
+              {project.amountSpent && (
+                <div
+                  className={
+                    isMiddle
+                      ? 'mt-8 flex items-center justify-between border-t border-white/15 pt-4'
+                      : 'mt-8 flex items-center justify-between border-t border-border pt-4'
+                  }
+                >
+                  <div>
                     <p
                       className={
-                        isTeal
-                          ? 'text-sm font-bold text-trust-700'
-                          : 'text-sm font-bold text-brand-700'
+                        isMiddle
+                          ? 'text-[11px] uppercase tracking-wider text-trust-300'
+                          : 'text-[11px] uppercase tracking-wider text-muted-foreground'
                       }
                     >
-                      £{project.amountSpent.toLocaleString('en-GB')}{' '}
-                      <span className="font-normal text-muted-foreground">
-                        {isTi ? 'ተወጺኡ' : 'invested'}
-                      </span>
+                      {isTi ? 'ዝተወጽአ ገንዘብ' : 'Direct Grant'}
+                    </p>
+                    <p
+                      className={
+                        isMiddle
+                          ? 'font-serif text-lg font-semibold text-white'
+                          : 'font-serif text-lg font-semibold text-foreground'
+                      }
+                    >
+                      £{project.amountSpent.toLocaleString('en-GB')}
                     </p>
                   </div>
-                )}
-              </CardContent>
-            </Card>
+                  <Link
+                    href={`/${locale}/achievements`}
+                    aria-label={title}
+                    className={
+                      isMiddle
+                        ? 'flex size-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors group-hover:bg-white/20'
+                        : 'flex size-9 items-center justify-center rounded-full bg-muted text-foreground transition-colors group-hover:bg-brand-100 group-hover:text-brand-800'
+                    }
+                  >
+                    <ArrowUpRight className="size-4" />
+                  </Link>
+                </div>
+              )}
+            </div>
           );
         })}
       </div>

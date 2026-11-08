@@ -1,79 +1,58 @@
-import { PoundSterling, Users, FolderHeart, CalendarDays } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { SectionWrapper } from '@/components/layout/section-wrapper';
 import { SITE } from '@/lib/constants';
 
 const stats = [
   {
+    kicker: 'Direct Funding',
     label: 'Total Raised & Spent',
-    value: `£${SITE.impact.totalRaised.toLocaleString('en-GB')}`,
-    icon: PoundSterling,
-    description: 'Directly supporting children in Eritrea',
-    accent: 'brand' as const,
+    value: `£${Math.round(SITE.impact.totalRaised).toLocaleString('en-GB')}`,
+    description: 'Every pound goes directly to projects on the ground in Eritrea',
   },
   {
-    label: 'Children Helped',
+    kicker: 'Special Needs Focus',
+    label: 'Children Supported',
     value: `${SITE.impact.kidsHelped}+`,
-    icon: Users,
-    description: 'With autism, Down syndrome, and more',
-    accent: 'teal' as const,
+    description: 'Supporting children with autism, Down syndrome & hearing loss',
   },
   {
-    label: 'Projects Completed',
+    kicker: 'Tangible Outcomes',
+    label: 'Major Projects',
     value: String(SITE.impact.projectCount),
-    icon: FolderHeart,
-    description: 'Playrooms, education, equipment',
-    accent: 'brand' as const,
+    description: 'Hospital playrooms, playgrounds, assistive aid & school laptops',
   },
   {
-    label: 'Years of Impact',
+    kicker: 'Long-Term Commitment',
+    label: 'Years of Service',
     value: `${SITE.impact.yearsSinceFoundation}+`,
-    icon: CalendarDays,
-    description: 'Serving communities since 2010',
-    accent: 'teal' as const,
+    description: 'Serving communities since 2010 under Charity No. 1139089',
   },
 ];
 
 export function ImpactStats() {
   return (
-    <SectionWrapper>
-      <div className="text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-foreground">
-          Our Impact
-        </h2>
-        <p className="mt-2 text-muted-foreground">
-          Every pound raised goes directly to supporting children in need.
-        </p>
-      </div>
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {stats.map((stat) => (
-          <Card
-            key={stat.label}
-            className={
-              stat.accent === 'teal'
-                ? 'border-t-4 border-t-trust-600 text-center'
-                : 'border-t-4 border-t-brand-500 text-center'
-            }
-          >
-            <CardContent className="pt-6">
-              <stat.icon
-                className={
-                  stat.accent === 'teal'
-                    ? 'mx-auto size-8 text-trust-600'
-                    : 'mx-auto size-8 text-brand-500'
-                }
-              />
-              <p className="mt-4 text-3xl font-bold text-foreground">
+    <section className="bg-trust-950 text-white">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-white/10">
+          {stats.map((stat, idx) => (
+            <div
+              key={stat.label}
+              className={idx === 0 ? 'lg:pr-6' : 'lg:px-6'}
+            >
+              <p className="text-xs font-semibold uppercase tracking-widest text-brand-300">
+                {stat.kicker}
+              </p>
+              <p className="mt-2 font-serif text-4xl font-semibold tracking-tight text-white sm:text-5xl">
                 {stat.value}
               </p>
-              <p className="mt-1 font-medium text-foreground">{stat.label}</p>
-              <p className="mt-1 text-sm text-muted-foreground">
+              <p className="mt-2 text-base font-semibold text-trust-100">
+                {stat.label}
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-trust-200/80">
                 {stat.description}
               </p>
-            </CardContent>
-          </Card>
-        ))}
+            </div>
+          ))}
+        </div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { Heart, BookOpen, GraduationCap, HandHeart } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import Image from 'next/image';
+import { ShieldCheck, Scale, Calendar } from 'lucide-react';
 import { PageHeader } from '@/components/shared/page-header';
 import { SectionWrapper } from '@/components/layout/section-wrapper';
 import { getTranslations } from '@/lib/get-translations';
@@ -21,22 +21,19 @@ export default async function OurStoryPage({
 
   const missionObjects = [
     {
-      icon: Heart,
+      num: '01',
       title: t.about.healthTitle,
       description: t.about.healthDesc,
-      accent: 'brand' as const,
     },
     {
-      icon: GraduationCap,
+      num: '02',
       title: t.about.educationTitle,
       description: t.about.educationDesc,
-      accent: 'teal' as const,
     },
     {
-      icon: HandHeart,
+      num: '03',
       title: t.about.reliefTitle,
       description: t.about.reliefDesc,
-      accent: 'brand' as const,
     },
   ];
 
@@ -47,77 +44,152 @@ export default async function OurStoryPage({
         subtitle={t.about.pageSubtitle}
       />
 
-      {/* Origin Story */}
+      {/* Editorial Origin Story */}
       <SectionWrapper>
-        <div className="mx-auto max-w-3xl">
-          <h2 className="text-2xl font-bold text-foreground">
-            {t.about.originTitle}
-          </h2>
-          <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
-            <p>{t.about.originBody1}</p>
-            {t.about.originBody2 && <p>{t.about.originBody2}</p>}
+        <div className="grid items-start gap-12 lg:grid-cols-12">
+          {/* Memorial Portrait Card */}
+          <div className="lg:col-span-5">
+            <div className="overflow-hidden rounded-3xl border border-border bg-white p-6 shadow-sm sm:p-8">
+              <div className="relative mx-auto aspect-square w-48 overflow-hidden rounded-2xl border-2 border-brand-200 bg-brand-50 shadow-xs sm:w-56">
+                <Image
+                  src="/images/mesfin-portrait.png"
+                  alt="Mesfin Hiruy"
+                  fill
+                  sizes="224px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="mt-6 text-center">
+                <span className="inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-800">
+                  In Loving Memory
+                </span>
+                <h2 className="mt-2 font-serif text-2xl font-semibold text-foreground">
+                  Mesfin Hiruy
+                </h2>
+                <p className="mt-1 text-sm font-medium text-muted-foreground">
+                  7 December 1990 – 4 December 2000
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="mt-8 rounded-lg border-l-4 border-brand-500 bg-brand-50 p-6">
-            <BookOpen className="size-6 text-brand-600" />
-            <div className="mt-3 space-y-3 text-muted-foreground italic">
-              <p>{t.about.quote1}</p>
+          {/* Narrative & Orange Callout */}
+          <div className="lg:col-span-7">
+            <p className="text-xs font-semibold uppercase tracking-widest text-brand-700">
+              Our Beginning
+            </p>
+            <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground sm:text-4xl">
+              {t.about.originTitle}
+            </h2>
+            <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
+              <p>{t.about.originBody1}</p>
+              {t.about.originBody2 && <p>{t.about.originBody2}</p>}
+            </div>
+
+            <div className="mt-8 rounded-2xl border-l-4 border-brand-600 bg-brand-50/80 p-6 sm:p-8">
+              <p className="font-serif text-xl italic leading-relaxed text-brand-950">
+                &ldquo;{t.about.quote1}&rdquo;
+              </p>
+              <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-brand-800">
+                — Nebiat Yoseph, Founder &amp; Chair
+              </p>
             </div>
           </div>
         </div>
       </SectionWrapper>
 
-      {/* Constitutional Mission */}
-      <div className="bg-trust-50/50">
+      {/* Constitutional Mission (Editorial Numbered Bento) */}
+      <div className="border-y border-border bg-muted/60">
         <SectionWrapper>
-          <div className="text-center">
-            <h2 className="text-2xl font-bold text-foreground">
+          <div className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-widest text-trust-700">
+              Charitable Objects
+            </p>
+            <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground sm:text-4xl">
               {t.about.missionTitle}
             </h2>
             <p className="mt-2 text-muted-foreground">
               {t.about.missionSubtitle}
             </p>
           </div>
+
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            {missionObjects.map((obj) => (
-              <Card
-                key={obj.title}
-                className={
-                  obj.accent === 'teal'
-                    ? 'border-t-4 border-t-trust-600'
-                    : 'border-t-4 border-t-brand-500'
-                }
-              >
-                <CardContent className="pt-6 text-center">
-                  <obj.icon
+            {missionObjects.map((obj, idx) => {
+              const isFeatured = idx === 0;
+              return (
+                <div
+                  key={obj.title}
+                  className={
+                    isFeatured
+                      ? 'rounded-3xl bg-trust-950 p-8 text-white shadow-sm'
+                      : 'rounded-3xl border border-border bg-white p-8 shadow-2xs'
+                  }
+                >
+                  <span
                     className={
-                      obj.accent === 'teal'
-                        ? 'mx-auto size-10 text-trust-600'
-                        : 'mx-auto size-10 text-brand-500'
+                      isFeatured
+                        ? 'font-serif text-4xl font-semibold text-brand-300'
+                        : 'font-serif text-4xl font-semibold text-brand-600'
                     }
-                  />
-                  <h3 className="mt-4 font-semibold text-foreground">
+                  >
+                    {obj.num}
+                  </span>
+                  <h3
+                    className={
+                      isFeatured
+                        ? 'mt-6 font-serif text-xl font-semibold text-white'
+                        : 'mt-6 font-serif text-xl font-semibold text-foreground'
+                    }
+                  >
                     {obj.title}
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
+                  <p
+                    className={
+                      isFeatured
+                        ? 'mt-3 text-sm leading-relaxed text-trust-100/85'
+                        : 'mt-3 text-sm leading-relaxed text-muted-foreground'
+                    }
+                  >
                     {obj.description}
                   </p>
-                </CardContent>
-              </Card>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </SectionWrapper>
       </div>
 
-      {/* Governance */}
+      {/* Governance Official Credential Card */}
       <SectionWrapper>
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-2xl font-bold text-foreground">
-            {t.about.governanceTitle}
-          </h2>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            {t.about.governanceBody}
-          </p>
+        <div className="mx-auto max-w-4xl overflow-hidden rounded-3xl border border-border bg-white p-8 shadow-xs sm:p-12">
+          <div className="grid items-center gap-8 md:grid-cols-12">
+            <div className="md:col-span-8">
+              <p className="text-xs font-semibold uppercase tracking-widest text-trust-700">
+                Accountability &amp; Structure
+              </p>
+              <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground">
+                {t.about.governanceTitle}
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                {t.about.governanceBody}
+              </p>
+            </div>
+
+            <div className="space-y-3 rounded-2xl bg-muted/70 p-6 md:col-span-4">
+              <div className="flex items-center gap-2.5 text-sm font-semibold text-foreground">
+                <ShieldCheck className="size-4 text-trust-700" />
+                <span>Charity No. 1139089</span>
+              </div>
+              <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                <Calendar className="size-4 text-brand-600" />
+                <span>Constitution: 4 July 2008</span>
+              </div>
+              <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                <Scale className="size-4 text-trust-700" />
+                <span>England &amp; Wales</span>
+              </div>
+            </div>
+          </div>
         </div>
       </SectionWrapper>
     </>

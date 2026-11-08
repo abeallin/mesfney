@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Quote } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SectionWrapper } from '@/components/layout/section-wrapper';
 import { getTranslations } from '@/lib/get-translations';
@@ -7,25 +7,47 @@ import { getTranslations } from '@/lib/get-translations';
 export function MissionPreview({ locale }: { locale: string }) {
   const t = getTranslations(locale);
 
+  const pillars = [
+    {
+      num: '01',
+      title: t.about.healthTitle,
+      desc: t.about.healthDesc,
+    },
+    {
+      num: '02',
+      title: t.about.educationTitle,
+      desc: t.about.educationDesc,
+    },
+    {
+      num: '03',
+      title: t.about.reliefTitle,
+      desc: t.about.reliefDesc,
+    },
+  ];
+
   return (
-    <div className="border-y border-brand-100/60 bg-gradient-to-br from-brand-50/50 via-white to-trust-50/50">
+    <div className="border-b border-border bg-muted/60">
       <SectionWrapper>
-        <div className="grid items-center gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 rounded-full bg-brand-100/80 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-800">
-              <BookOpen className="size-3.5 text-brand-600" />
-              <span>{t.home.missionTitle}</span>
-            </div>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <div className="grid items-start gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-6">
+            <p className="text-xs font-semibold uppercase tracking-widest text-brand-700">
+              {t.home.missionTitle}
+            </p>
+            <h2 className="mt-3 font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
               {t.about.originTitle}
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               {t.home.missionBody1}
             </p>
+            <div className="mt-6 rounded-2xl border-l-4 border-brand-600 bg-white p-6 shadow-2xs">
+              <p className="font-serif text-lg italic leading-relaxed text-foreground">
+                &ldquo;{t.home.missionBody2}&rdquo;
+              </p>
+            </div>
             <Button
               asChild
               variant="link"
-              className="mt-4 px-0 text-base font-semibold text-trust-700 hover:text-trust-800"
+              className="mt-5 px-0 text-base font-semibold text-trust-800 hover:text-trust-950"
             >
               <Link href={`/${locale}/our-story`}>
                 {t.home.missionLink}
@@ -34,18 +56,30 @@ export function MissionPreview({ locale }: { locale: string }) {
             </Button>
           </div>
 
-          <div className="lg:col-span-5">
-            <div className="relative overflow-hidden rounded-2xl border border-brand-200/80 bg-gradient-to-br from-brand-50 to-white p-8 shadow-sm">
-              <div className="absolute -right-6 -top-6 size-24 rounded-full bg-trust-200/30 blur-2xl" />
-              <Quote className="size-8 text-brand-500" />
-              <p className="mt-4 text-lg font-medium italic leading-relaxed text-foreground">
-                &ldquo;{t.home.missionBody2}&rdquo;
+          <div className="lg:col-span-6">
+            <div className="rounded-3xl border border-border bg-white p-6 shadow-xs sm:p-8">
+              <p className="text-xs font-semibold uppercase tracking-widest text-trust-700">
+                Constitutional Objects
               </p>
-              <div className="mt-6 flex items-center gap-3 border-t border-brand-200/60 pt-4">
-                <div className="h-2 w-2 rounded-full bg-trust-600" />
-                <span className="text-xs font-semibold uppercase tracking-wider text-trust-800">
-                  Mesfiney&apos;s Love Foundation
-                </span>
+              <h3 className="mt-2 font-serif text-2xl font-semibold text-foreground">
+                {t.about.missionTitle}
+              </h3>
+              <div className="mt-6 divide-y divide-border">
+                {pillars.map((pillar) => (
+                  <div key={pillar.num} className="flex gap-5 py-4 first:pt-0 last:pb-0">
+                    <span className="font-serif text-2xl font-semibold text-brand-600">
+                      {pillar.num}
+                    </span>
+                    <div>
+                      <h4 className="font-semibold text-foreground">
+                        {pillar.title}
+                      </h4>
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                        {pillar.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

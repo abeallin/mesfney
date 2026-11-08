@@ -1,5 +1,4 @@
 import { Heart, CalendarHeart } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getTranslations } from '@/lib/get-translations';
 
 interface DonationOptionsProps {
@@ -11,33 +10,29 @@ export function DonationOptions({ locale }: DonationOptionsProps) {
 
   return (
     <div className="grid gap-6 sm:grid-cols-2">
-      <Card className="border-t-4 border-t-brand-500 transition-all hover:shadow-md">
-        <CardHeader>
-          <div className="flex size-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
-            <Heart className="size-6" />
-          </div>
-          <CardTitle className="mt-3">{t.donate.oneTimeTitle}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-muted-foreground">
-            {t.donate.oneTimeDesc}
-          </p>
-        </CardContent>
-      </Card>
+      <div className="rounded-3xl border border-border bg-white p-8 shadow-2xs">
+        <div className="flex size-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-700">
+          <Heart className="size-6" />
+        </div>
+        <h3 className="mt-5 font-serif text-2xl font-semibold text-foreground">
+          {t.donate.oneTimeTitle}
+        </h3>
+        <p className="mt-2 leading-relaxed text-muted-foreground">
+          {t.donate.oneTimeDesc}
+        </p>
+      </div>
 
-      <Card className="border-t-4 border-t-trust-600 transition-all hover:shadow-md">
-        <CardHeader>
-          <div className="flex size-12 items-center justify-center rounded-xl bg-trust-50 text-trust-600">
-            <CalendarHeart className="size-6" />
-          </div>
-          <CardTitle className="mt-3">{t.donate.regularTitle}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-muted-foreground">
-            {t.donate.regularDesc}
-          </p>
-        </CardContent>
-      </Card>
+      <div className="rounded-3xl border border-border bg-white p-8 shadow-2xs">
+        <div className="flex size-12 items-center justify-center rounded-2xl bg-trust-50 text-trust-700">
+          <CalendarHeart className="size-6" />
+        </div>
+        <h3 className="mt-5 font-serif text-2xl font-semibold text-foreground">
+          {t.donate.regularTitle}
+        </h3>
+        <p className="mt-2 leading-relaxed text-muted-foreground">
+          {t.donate.regularDesc}
+        </p>
+      </div>
     </div>
   );
 }

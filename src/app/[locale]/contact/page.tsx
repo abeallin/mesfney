@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Mail, Phone } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PageHeader } from '@/components/shared/page-header';
 import { SectionWrapper } from '@/components/layout/section-wrapper';
 import { ContactForm } from '@/components/forms/contact-form';
@@ -29,59 +28,64 @@ export default async function ContactPage({
       />
 
       <SectionWrapper>
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid items-start gap-12 lg:grid-cols-12">
           {/* Contact Details */}
-          <div>
-            <h2 className="text-2xl font-bold text-foreground">
+          <div className="lg:col-span-5">
+            <p className="text-xs font-semibold uppercase tracking-widest text-brand-700">
+              Direct Enquiries
+            </p>
+            <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground">
               {t.contact.getInTouch}
             </h2>
-            <p className="mt-2 text-muted-foreground">
+            <p className="mt-3 leading-relaxed text-muted-foreground">
               {t.contact.getInTouchDesc}
             </p>
 
-            <div className="mt-8 space-y-6">
-              <Card className="border-t-4 border-t-brand-500">
-                <CardContent className="flex items-start gap-4 pt-6">
-                  <Mail className="size-6 shrink-0 text-brand-500" />
-                  <div>
-                    <h3 className="font-semibold text-foreground">{t.contact.email}</h3>
-                    <a
-                      href={`mailto:${SITE.contact.email}`}
-                      className="text-brand-700 hover:underline"
-                    >
-                      {SITE.contact.email}
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
+            <div className="mt-8 space-y-4">
+              <div className="flex items-start gap-4 rounded-2xl border border-border bg-white p-6 shadow-2xs">
+                <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
+                  <Mail className="size-5" />
+                </div>
+                <div>
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    {t.contact.email}
+                  </h3>
+                  <a
+                    href={`mailto:${SITE.contact.email}`}
+                    className="mt-1 inline-block font-serif text-lg font-semibold text-foreground hover:text-brand-700"
+                  >
+                    {SITE.contact.email}
+                  </a>
+                </div>
+              </div>
 
-              <Card className="border-t-4 border-t-trust-600">
-                <CardContent className="flex items-start gap-4 pt-6">
-                  <Phone className="size-6 shrink-0 text-trust-600" />
-                  <div>
-                    <h3 className="font-semibold text-foreground">{t.contact.phone}</h3>
-                    <a
-                      href={`tel:${SITE.contact.phoneInternational}`}
-                      className="text-trust-700 hover:underline"
-                    >
-                      {SITE.contact.phone}
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
+              <div className="flex items-start gap-4 rounded-2xl border border-border bg-white p-6 shadow-2xs">
+                <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-trust-50 text-trust-700">
+                  <Phone className="size-5" />
+                </div>
+                <div>
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    {t.contact.phone}
+                  </h3>
+                  <a
+                    href={`tel:${SITE.contact.phoneInternational}`}
+                    className="mt-1 inline-block font-serif text-lg font-semibold text-foreground hover:text-trust-700"
+                  >
+                    {SITE.contact.phone}
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div>
-            <Card>
-              <CardHeader>
-                <CardTitle>{t.contact.sendMessage}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ContactForm />
-              </CardContent>
-            </Card>
+          <div className="lg:col-span-7">
+            <div className="rounded-3xl border border-border bg-white p-6 shadow-xs sm:p-10">
+              <h2 className="mb-6 font-serif text-2xl font-semibold text-foreground">
+                {t.contact.sendMessage}
+              </h2>
+              <ContactForm />
+            </div>
           </div>
         </div>
       </SectionWrapper>
