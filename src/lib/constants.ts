@@ -4,10 +4,13 @@ export const SITE = {
   shortName: 'MLF',
   registrationNumber: '1139089',
   charityCommissionUrl:
-    'https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5011462',
+    'https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5012533?_uk_gov_ccew_onereg_charitydetails_web_portlet_CharityDetailsPortlet_organisationNumber=5012533',
   foundedDate: '2008-07-04',
   founder: 'Nebiat Yoseph',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://mesfneylove.org',
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.URL ||
+    'https://stellular-entremet-e54dbe.netlify.app',
   contact: {
     email: 'mesfneylove@gmail.com',
     phone: '0208 452 9312',
