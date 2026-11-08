@@ -24,11 +24,11 @@ export function Header() {
             <Heart className="size-5 fill-white text-white" />
           </div>
           <div className="flex flex-col">
-            <span className="text-base font-bold leading-tight text-foreground sm:text-lg">
-              Mesfiney&apos;s Love Foundation
+            <span className="font-serif text-base font-bold leading-tight text-foreground sm:text-lg">
+              {t('Header.title')}
             </span>
             <span className="hidden text-xs text-muted-foreground sm:block">
-              Supporting children with special needs in Eritrea
+              {t('Header.subtitle')}
             </span>
           </div>
         </Link>

@@ -61,13 +61,13 @@ export default async function OurStoryPage({
               </div>
               <div className="mt-6 text-center">
                 <span className="inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-800">
-                  In Loving Memory
+                  {t.home.memorialTag}
                 </span>
                 <h2 className="mt-2 font-serif text-2xl font-semibold text-foreground">
-                  Mesfin Hiruy
+                  {t.home.memorialName}
                 </h2>
                 <p className="mt-1 text-sm font-medium text-muted-foreground">
-                  7 December 1990 – 4 December 2000
+                  {t.home.memorialDates}
                 </p>
               </div>
             </div>
@@ -76,7 +76,7 @@ export default async function OurStoryPage({
           {/* Narrative & Orange Callout */}
           <div className="lg:col-span-7">
             <p className="text-xs font-semibold uppercase tracking-widest text-brand-700">
-              Our Beginning
+              {t.about.originKicker}
             </p>
             <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground sm:text-4xl">
               {t.about.originTitle}
@@ -91,7 +91,7 @@ export default async function OurStoryPage({
                 &ldquo;{t.about.quote1}&rdquo;
               </p>
               <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-brand-800">
-                — Nebiat Yoseph, Founder &amp; Chair
+                {t.about.quoteAuthor}
               </p>
             </div>
           </div>
@@ -103,7 +103,7 @@ export default async function OurStoryPage({
         <SectionWrapper>
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-widest text-trust-700">
-              Charitable Objects
+              {t.about.missionKicker}
             </p>
             <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground sm:text-4xl">
               {t.about.missionTitle}
@@ -165,7 +165,7 @@ export default async function OurStoryPage({
           <div className="grid items-center gap-8 md:grid-cols-12">
             <div className="md:col-span-8">
               <p className="text-xs font-semibold uppercase tracking-widest text-trust-700">
-                Accountability &amp; Structure
+                {t.about.governanceKicker}
               </p>
               <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground">
                 {t.about.governanceTitle}
@@ -178,15 +178,15 @@ export default async function OurStoryPage({
             <div className="space-y-3 rounded-2xl bg-muted/70 p-6 md:col-span-4">
               <div className="flex items-center gap-2.5 text-sm font-semibold text-foreground">
                 <ShieldCheck className="size-4 text-trust-700" />
-                <span>Charity No. 1139089</span>
+                <span>{t.about.credentialCharityNo}</span>
               </div>
               <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
                 <Calendar className="size-4 text-brand-600" />
-                <span>Constitution: 4 July 2008</span>
+                <span>{t.about.credentialConstitution}</span>
               </div>
               <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
                 <Scale className="size-4 text-trust-700" />
-                <span>England &amp; Wales</span>
+                <span>{t.about.credentialJurisdiction}</span>
               </div>
             </div>
           </div>

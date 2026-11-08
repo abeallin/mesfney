@@ -33,8 +33,8 @@ export function MobileNav() {
       </SheetTrigger>
       <SheetContent side="right" className="w-72">
         <SheetHeader>
-          <SheetTitle className="text-left text-brand-700 font-bold">
-            Mesfiney&apos;s Love Foundation
+          <SheetTitle className="text-left font-serif text-brand-700 font-bold">
+            {t('Header.title')}
           </SheetTitle>
         </SheetHeader>
         <div className="flex h-full flex-col">

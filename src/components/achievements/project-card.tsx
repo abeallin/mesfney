@@ -39,7 +39,7 @@ export function ProjectCard({ project, locale, accent = 'brand' }: ProjectCardPr
               variant="outline"
               className="border-trust-200 bg-trust-50/70 text-trust-800"
             >
-              {t.achievements.withPartner} {project.partner}
+              {t.achievements.withPartner} {(isTi && project.partnerTi) || project.partner}
             </Badge>
           )}
         </div>

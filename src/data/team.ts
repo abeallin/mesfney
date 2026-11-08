@@ -4,6 +4,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 'nebiat',
     name: 'Nebiat Yoseph',
+    nameTi: 'ነብያት ዮሴፍ',
     role: 'chair',
     title: 'Chair & Founder',
     isCurrent: true,
@@ -13,6 +14,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 'mebrak',
     name: 'Mebrak Ghebrweldi',
+    nameTi: 'መብራቕ ገብረወልዲ',
     role: 'chair',
     title: 'Co-Chair',
     isCurrent: true,
@@ -22,6 +24,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 'meron',
     name: 'Meron',
+    nameTi: 'ሜሮን',
     role: 'secretary',
     title: 'Secretary',
     isCurrent: true,
@@ -31,6 +34,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 'furtuna',
     name: 'Furtuna',
+    nameTi: 'ፉርቱና',
     role: 'secretary',
     title: 'Secretary',
     isCurrent: true,
@@ -40,6 +44,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 'yonas',
     name: 'Yonas',
+    nameTi: 'ዮናስ',
     role: 'finances',
     title: 'Finances',
     isCurrent: true,
@@ -49,6 +54,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 'sara',
     name: 'Sara',
+    nameTi: 'ሳራ',
     role: 'finances',
     title: 'Finances',
     isCurrent: true,
@@ -58,6 +64,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 'feben',
     name: 'Feben',
+    nameTi: 'ፌበን',
     role: 'finances',
     title: 'Finances',
     isCurrent: true,
@@ -67,6 +74,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 'rahel',
     name: 'Rahel',
+    nameTi: 'ራሄል',
     role: 'fundraiser',
     title: 'Fundraiser',
     isCurrent: true,
@@ -76,6 +84,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 'yohana',
     name: 'Yohana',
+    nameTi: 'ዮሃና',
     role: 'fundraiser',
     title: 'Fundraiser',
     isCurrent: true,

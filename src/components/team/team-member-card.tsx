@@ -44,6 +44,7 @@ export function TeamMemberCard({ member, locale, featured = false }: TeamMemberC
   const displayTitle = member.title
     ? titleLabels[member.title] || roleLabels[member.role] || member.title
     : roleLabels[member.role] || t.team.roleVolunteer;
+  const displayName = (locale === 'ti' && member.nameTi) || member.name;
 
   if (featured) {
     return (
@@ -64,7 +65,7 @@ export function TeamMemberCard({ member, locale, featured = false }: TeamMemberC
             )}
           </div>
           <h3 className="mt-2 font-serif text-2xl font-semibold text-foreground">
-            {member.name}
+            {displayName}
           </h3>
         </div>
       </div>
@@ -78,7 +79,7 @@ export function TeamMemberCard({ member, locale, featured = false }: TeamMemberC
       </div>
       <div>
         <h3 className="font-serif text-lg font-semibold text-foreground">
-          {member.name}
+          {displayName}
         </h3>
         <Badge variant="outline" className={`mt-1 text-xs ${roleColors[member.role] || ''}`}>
           {displayTitle}

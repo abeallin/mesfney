@@ -21,6 +21,7 @@ export interface Project {
   title: string;
   titleTi?: string;
   partner?: string;
+  partnerTi?: string;
   achievement: string;
   achievementTi?: string;
   description?: string;
@@ -34,6 +35,7 @@ export interface Project {
 export interface TeamMember {
   id: string;
   name: string;
+  nameTi?: string;
   role: TeamRole;
   title?: string;
   isCurrent: boolean;
@@ -60,10 +62,13 @@ export interface FinancialRecord {
 export interface MLFEvent {
   id: string;
   title: string;
+  titleTi?: string;
   date: string;
   endDate?: string;
   location?: string;
+  locationTi?: string;
   description: string;
+  descriptionTi?: string;
   status: 'upcoming' | 'ongoing' | 'past';
 }
 

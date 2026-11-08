@@ -16,7 +16,7 @@ export function Footer({ locale }: { locale: string }) {
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <Heart className="size-5 fill-brand-500 text-brand-500" />
-              <span className="font-bold text-foreground">{SITE.name}</span>
+              <span className="font-serif font-bold text-foreground">{t.Header.title}</span>
             </div>
             <p className="text-sm text-muted-foreground">
               {t.footer.about}
@@ -75,7 +75,7 @@ export function Footer({ locale }: { locale: string }) {
               {t.common.charityRegistration}
             </p>
             <p className="mt-1 text-sm text-muted-foreground">
-              {SITE.legalName}
+              {t.Header.title}
             </p>
           </div>
         </div>
@@ -84,7 +84,7 @@ export function Footer({ locale }: { locale: string }) {
 
         <div className="text-center text-sm text-muted-foreground">
           <p>
-            &copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.
+            &copy; {new Date().getFullYear()} {t.Header.title}. {t.footer.rightsReserved}
           </p>
         </div>
       </div>

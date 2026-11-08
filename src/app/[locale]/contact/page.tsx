@@ -32,7 +32,7 @@ export default async function ContactPage({
           {/* Contact Details */}
           <div className="lg:col-span-5">
             <p className="text-xs font-semibold uppercase tracking-widest text-brand-700">
-              Direct Enquiries
+              {locale === 'ti' ? 'ቀጥታዊ ርክብ' : 'Direct Enquiries'}
             </p>
             <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground">
               {t.contact.getInTouch}

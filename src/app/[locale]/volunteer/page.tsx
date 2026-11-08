@@ -48,7 +48,7 @@ export default async function VolunteerPage({
           {/* Left Column: Ways to Help */}
           <div className="lg:col-span-5">
             <p className="text-xs font-semibold uppercase tracking-widest text-brand-700">
-              Make an Impact
+              {t.volunteer.kicker}
             </p>
             <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground">
               {t.volunteer.howTitle}

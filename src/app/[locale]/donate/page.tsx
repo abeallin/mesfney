@@ -158,7 +158,7 @@ export default async function DonatePage({
             </div>
             <Button asChild variant="outline" className="mt-6 rounded-xl">
               <a href={`mailto:${SITE.contact.email}?subject=Bank%20Transfer%20Donation%20Enquiry`}>
-                Request Sort Code &amp; Account Details
+                {isTi ? 'ናይ ባንክ ሕሳብ ዝርዝራት ሕተት' : 'Request Sort Code & Account Details'}
                 <ArrowRight className="size-4" />
               </a>
             </Button>
@@ -166,7 +166,7 @@ export default async function DonatePage({
 
           <div className="rounded-3xl border border-border bg-white p-8 shadow-2xs">
             <span className="inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-800">
-              Community
+              {isTi ? 'ማሕበረሰብ' : 'Community'}
             </span>
             <h3 className="mt-4 font-serif text-2xl font-semibold text-foreground">
               {t.donate.memberTitle}

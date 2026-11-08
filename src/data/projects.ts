@@ -35,6 +35,7 @@ export const projects: Project[] = [
     title: 'Deaf Children Support',
     titleTi: 'ደገፍ ጽሙማን ቆልዑ',
     partner: 'Abraha Bahter & Era',
+    partnerTi: 'ኣብርሃ ባሕተርን Eraን',
     achievement:
       'Helped deaf children; provided walking sticks, blankets, TVs',
     achievementTi:

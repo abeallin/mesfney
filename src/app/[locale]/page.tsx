@@ -14,7 +14,7 @@ export default async function HomePage({
   return (
     <>
       <HeroSection locale={locale} />
-      <ImpactStats />
+      <ImpactStats locale={locale} />
       <MissionPreview locale={locale} />
       <FeaturedProjects locale={locale} />
       <CTABanner locale={locale} />

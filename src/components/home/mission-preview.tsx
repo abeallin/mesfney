@@ -59,7 +59,7 @@ export function MissionPreview({ locale }: { locale: string }) {
           <div className="lg:col-span-6">
             <div className="rounded-3xl border border-border bg-white p-6 shadow-xs sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-widest text-trust-700">
-                Constitutional Objects
+                {t.home.objectsKicker}
               </p>
               <h3 className="mt-2 font-serif text-2xl font-semibold text-foreground">
                 {t.about.missionTitle}

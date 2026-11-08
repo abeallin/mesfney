@@ -1,17 +1,23 @@
 import type { Metadata } from 'next';
-import { Fraunces, Plus_Jakarta_Sans } from 'next/font/google';
+import { Outfit, DM_Sans, Noto_Sans_Ethiopic } from 'next/font/google';
 import './[locale]/globals.css';
 
-const jakarta = Plus_Jakarta_Sans({
+const dmSans = DM_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-jakarta',
+  variable: '--font-dm-sans',
 });
 
-const fraunces = Fraunces({
+const outfit = Outfit({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-fraunces',
+  variable: '--font-outfit',
+});
+
+const notoEthiopic = Noto_Sans_Ethiopic({
+  subsets: ['ethiopic'],
+  display: 'swap',
+  variable: '--font-ethiopic',
 });
 
 export const metadata: Metadata = {
@@ -49,7 +55,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${jakarta.variable} ${fraunces.variable} font-sans antialiased`}>
+      <body className={`${dmSans.variable} ${outfit.variable} ${notoEthiopic.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>

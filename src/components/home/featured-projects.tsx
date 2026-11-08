@@ -78,7 +78,7 @@ export function FeaturedProjects({ locale }: { locale: string }) {
                           : 'border-border bg-muted/60 text-xs text-muted-foreground'
                       }
                     >
-                      {project.partner}
+                      {(isTi && project.partnerTi) || project.partner}
                     </Badge>
                   )}
                 </div>

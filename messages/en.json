@@ -4,6 +4,8 @@
     "ti": "Tigrinya"
   },
   "Header": {
+    "title": "Mesfiney's Love Foundation",
+    "subtitle": "Supporting children with special needs in Eritrea",
     "donate": "Donate"
   },
   "nav": {
@@ -30,18 +32,45 @@
     "ctaTitle": "Help Us Make a Difference",
     "ctaDescription": "Whether you donate, volunteer, or simply spread the word, your support changes lives. Join us in supporting children with special needs in Eritrea.",
     "ctaDonate": "Donate Now",
-    "ctaVolunteer": "Become a Volunteer"
+    "ctaVolunteer": "Become a Volunteer",
+    "trustVolunteer": "100% Volunteer-Led Trustee Board",
+    "trustSince": "Serving Eritrea Since 2010",
+    "memorialTag": "In Loving Memory",
+    "memorialName": "Mesfin Hiruy",
+    "memorialDates": "7 December 1990 – 4 December 2000",
+    "memorialSummary": "Founded by his mother, Nebiat Yoseph, to bring play, education, and dignity to children with special needs.",
+    "initiativeTag": "2025 Initiative",
+    "initiativeValue": "16 Laptops",
+    "initiativeDesc": "Delivered to students in Eritrea",
+    "storyCardTag": "Our Story",
+    "storyCardDesc": "Read about Mesfin's legacy & mission",
+    "objectsKicker": "Constitutional Objects",
+    "stat1Kicker": "Direct Funding",
+    "stat1Label": "Total Raised & Spent",
+    "stat1Desc": "Every pound goes directly to projects on the ground in Eritrea",
+    "stat2Kicker": "Special Needs Focus",
+    "stat2Label": "Children Supported",
+    "stat2Desc": "Supporting children with autism, Down syndrome & hearing loss",
+    "stat3Kicker": "Tangible Outcomes",
+    "stat3Label": "Major Projects",
+    "stat3Desc": "Hospital playrooms, playgrounds, assistive aid & school laptops",
+    "stat4Kicker": "Long-Term Commitment",
+    "stat4Label": "Years of Service",
+    "stat4Desc": "Serving communities since 2010 under Charity No. 1139089"
   },
   "about": {
     "pageTitle": "Our Story",
     "pageSubtitle": "Founded in memory of Mesfin Hiruy, a brave young boy who inspired a movement of compassion.",
+    "originKicker": "Our Beginning",
     "originTitle": "The Story of Mesfin",
     "originBody1": "Mesfin Hiruy was born on 7 December 1990. From the age of two, he bravely battled Leukaemia until his passing on 4 December 2000. His mother, Nebiat Yoseph, founded this charity in his memory to help children in Eritrea with special needs.",
     "originBody2": "",
     "quote1": "We believe that children with disabilities deserve the same access to play, education, and joyful experiences as every other child.",
+    "quoteAuthor": "— Nebiat Yoseph, Founder & Chair",
     "quote2": "",
     "quote3": "",
     "quote4": "",
+    "missionKicker": "Charitable Objects",
     "missionTitle": "Our Constitutional Mission",
     "missionSubtitle": "The three charitable objects that guide everything we do.",
     "healthTitle": "Health & Wellbeing",
@@ -50,8 +79,12 @@
     "educationDesc": "To promote the education of target group by providing equipment and facilities.",
     "reliefTitle": "Relief of Poverty",
     "reliefDesc": "Relief of poverty of target group.",
+    "governanceKicker": "Accountability & Structure",
     "governanceTitle": "Governance",
-    "governanceBody": "Mesfiney's Love Foundation is governed by a Board of Trustees in accordance with its constitution. The charity was formally established through the adoption of its constitution on 4 July 2008 and is registered with the Charity Commission for England and Wales under charity number 1139089."
+    "governanceBody": "Mesfiney's Love Foundation is governed by a Board of Trustees in accordance with its constitution. The charity was formally established through the adoption of its constitution on 4 July 2008 and is registered with the Charity Commission for England and Wales under charity number 1139089.",
+    "credentialCharityNo": "Charity No. 1139089",
+    "credentialConstitution": "Constitution: 4 July 2008",
+    "credentialJurisdiction": "England & Wales"
   },
   "achievements": {
     "pageTitle": "What We Have Achieved",
@@ -130,11 +163,14 @@
     "roleFinances": "Finances",
     "roleFundraiser": "Fundraiser",
     "roleVolunteer": "Volunteer",
-    "foundingMember": "Founding Member"
+    "foundingMember": "Founding Member",
+    "leadershipKicker": "Founding Leadership",
+    "committeeKicker": "Trustees & Committee"
   },
   "volunteer": {
     "pageTitle": "Volunteer With Us",
     "pageSubtitle": "Join our team and help make a difference in the lives of children with special needs.",
+    "kicker": "Make an Impact",
     "howTitle": "How You Can Help",
     "howDesc": "We are always looking for passionate individuals to join our team. Here are some areas where you can make a real impact.",
     "fundraisingTitle": "Fundraising",
@@ -173,11 +209,15 @@
     "about": "Mesfiney’s Love Foundation: A UK registered charity supporting children with special needs in Eritrea through healthcare, education, and play since 2010.",
     "quickLinks": "Quick Links",
     "contactUs": "Contact Us",
-    "legal": "Legal"
+    "legal": "Legal",
+    "rightsReserved": "All rights reserved."
   },
   "common": {
     "donateCta": "Make a Donation",
     "volunteerCta": "Join Our Team",
-    "charityRegistration": "Registered Charity No. 1139089"
+    "charityRegistration": "Registered Charity No. 1139089",
+    "notFoundTitle": "Page Not Found",
+    "notFoundDesc": "Sorry, we couldn't find the page you're looking for. It might have been moved or doesn't exist.",
+    "backToHome": "Back to Home"
   }
 }

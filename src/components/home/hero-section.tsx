@@ -66,11 +66,11 @@ export function HeroSection({ locale }: { locale: string }) {
             <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 border-t border-border pt-6 text-xs font-medium text-muted-foreground sm:text-sm">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="size-4 text-trust-700" />
-                <span>100% Volunteer-Led Trustee Board</span>
+                <span>{t.home.trustVolunteer}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Sparkles className="size-4 text-brand-600" />
-                <span>Serving Eritrea Since 2010</span>
+                <span>{t.home.trustSince}</span>
               </div>
             </div>
           </div>
@@ -98,16 +98,16 @@ export function HeroSection({ locale }: { locale: string }) {
                   </div>
                   <div>
                     <span className="inline-block rounded-full bg-brand-50 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-brand-800">
-                      In Loving Memory
+                      {t.home.memorialTag}
                     </span>
                     <h2 className="mt-1.5 font-serif text-2xl font-semibold text-foreground">
-                      Mesfin Hiruy
+                      {t.home.memorialName}
                     </h2>
                     <p className="text-xs font-medium text-muted-foreground">
-                      7 December 1990 – 4 December 2000
+                      {t.home.memorialDates}
                     </p>
                     <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                      Founded by his mother, <strong className="font-semibold text-foreground">Nebiat Yoseph</strong>, to bring play, education, and dignity to children with special needs.
+                      {t.home.memorialSummary}
                     </p>
                   </div>
                 </div>
@@ -120,13 +120,13 @@ export function HeroSection({ locale }: { locale: string }) {
                 <div className="mt-5 grid grid-cols-2 gap-3">
                   <div className="rounded-2xl bg-trust-950 p-4 text-white">
                     <p className="text-[11px] font-medium uppercase tracking-wider text-trust-200">
-                      2025 Initiative
+                      {t.home.initiativeTag}
                     </p>
                     <p className="mt-1 font-serif text-xl font-semibold">
-                      16 Laptops
+                      {t.home.initiativeValue}
                     </p>
                     <p className="mt-0.5 text-xs text-trust-200/90">
-                      Delivered to students in Eritrea
+                      {t.home.initiativeDesc}
                     </p>
                   </div>
                   <Link
@@ -135,12 +135,12 @@ export function HeroSection({ locale }: { locale: string }) {
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-[11px] font-semibold uppercase tracking-wider text-brand-800">
-                        Our Story
+                        {t.home.storyCardTag}
                       </span>
                       <ArrowUpRight className="size-4 text-brand-700 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </div>
                     <p className="mt-2 font-serif text-sm font-medium text-brand-950">
-                      Read about Mesfin&apos;s legacy &amp; mission
+                      {t.home.storyCardDesc}
                     </p>
                   </Link>
                 </div>
