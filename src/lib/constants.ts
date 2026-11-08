@@ -10,7 +10,7 @@ export const SITE = {
   url:
     process.env.NEXT_PUBLIC_SITE_URL ||
     process.env.URL ||
-    'https://stellular-entremet-e54dbe.netlify.app',
+    'https://mesfineyslove.netlify.app',
   contact: {
     email: 'mesfneylove@gmail.com',
     phone: '0208 452 9312',

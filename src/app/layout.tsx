@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ||
       process.env.URL ||
-      'https://stellular-entremet-e54dbe.netlify.app'
+      'https://mesfineyslove.netlify.app'
   ),
   title: {
     default: "Mesfiney's Love Foundation | Supporting Children with Special Needs in Eritrea",
